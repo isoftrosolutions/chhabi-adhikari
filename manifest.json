@@ -1,0 +1,21 @@
+{
+  "name": "Dr. Chhabi Adhikari | D School System",
+  "short_name": "D-School",
+  "description": "Transforming Mindset, Transforming Lives. NLP Training in Nepal.",
+  "start_url": "index.php",
+  "display": "standalone",
+  "background_color": "#1a2f5a",
+  "theme_color": "#1a2f5a",
+  "icons": [
+    {
+      "src": "chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
