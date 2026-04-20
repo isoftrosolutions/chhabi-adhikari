@@ -16,7 +16,7 @@ $footDesc = getSetting('footer_description', "Nepal's Leading Authority in Perso
             <div class="footer-grid">
                 <div class="footer-brand">
                     <div class="logo">
-                        <a href="/index.php" style="color:#fff;">D-SCHOOL<span style="color:var(--primary);">SYSTEM</span></a>
+                        <a href="<?= BASE_URL ?>/index.php" style="color:#fff;">D-SCHOOL<span style="color:var(--primary);">SYSTEM</span></a>
                     </div>
                     <p style="margin-top:20px;font-size:.9rem;line-height:1.6;"><?= htmlspecialchars($footDesc) ?></p>
                     <?php if ($phone): ?><p style="margin-top:10px;font-size:.85rem;color:var(--primary)"><i class="fas fa-phone"></i> <?= htmlspecialchars($phone) ?></p><?php endif; ?>
@@ -31,30 +31,30 @@ $footDesc = getSetting('footer_description', "Nepal's Leading Authority in Perso
                 <div class="footer-col">
                     <h4>Programs</h4>
                     <ul style="padding:0;">
-                        <li><a href="/nlp-sr-master.php">NLP SR Master Practitioner</a></li>
-                        <li><a href="/ttclc.php">Train the Life Coach</a></li>
-                        <li><a href="/nlp-practitioner.php">NLP Practitioner</a></li>
-                        <li><a href="/money.php">Money Mastery</a></li>
-                        <li><a href="/online-courses.php">Online Courses</a></li>
+                        <li><a href="<?= BASE_URL ?>/nlp-sr-master">NLP SR Master Practitioner</a></li>
+                        <li><a href="<?= BASE_URL ?>/ttclc">Train the Life Coach</a></li>
+                        <li><a href="<?= BASE_URL ?>/nlp-practitioner">NLP Practitioner</a></li>
+                        <li><a href="<?= BASE_URL ?>/money">Money Mastery</a></li>
+                        <li><a href="<?= BASE_URL ?>/online-courses">Online Courses</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul style="padding:0;">
-                        <li><a href="/about.php">About Dr. Chhabi</a></li>
-                        <li><a href="/calendar.php">Upcoming Workshops</a></li>
-                        <li><a href="/success-stories.php">Success Stories</a></li>
-                        <li><a href="/videos.php">Videos</a></li>
-                        <li><a href="/blog.php">Blog</a></li>
-                        <li><a href="/contact.php">Contact Us</a></li>
+                        <li><a href="<?= BASE_URL ?>/about">About Dr. Chhabi</a></li>
+                        <li><a href="<?= BASE_URL ?>/calendar">Upcoming Workshops</a></li>
+                        <li><a href="<?= BASE_URL ?>/success-stories">Success Stories</a></li>
+                        <li><a href="<?= BASE_URL ?>/videos">Videos</a></li>
+                        <li><a href="<?= BASE_URL ?>/blog">Blog</a></li>
+                        <li><a href="<?= BASE_URL ?>/contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Legal</h4>
                     <ul style="padding:0;">
-                        <li><a href="/refund-policy.php">Refund Policy</a></li>
-                        <li><a href="/privacy-policy.php">Privacy Policy</a></li>
-                        <li><a href="/terms.php">Terms & Conditions</a></li>
+                        <li><a href="<?= BASE_URL ?>/refund-policy">Refund Policy</a></li>
+                        <li><a href="<?= BASE_URL ?>/privacy-policy">Privacy Policy</a></li>
+                        <li><a href="<?= BASE_URL ?>/terms">Terms & Conditions</a></li>
                     </ul>
                     <?php if($address): ?>
                     <div style="margin-top:20px;font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6">
@@ -62,7 +62,7 @@ $footDesc = getSetting('footer_description', "Nepal's Leading Authority in Perso
                     </div>
                     <?php endif; ?>
                     <div style="margin-top:16px">
-                        <a href="/admin/login.php" style="font-size:.75rem;color:rgba(255,255,255,.2);text-decoration:none" title="Admin Login">Admin</a>
+                        <a href="<?= BASE_URL ?>/admin/login.php" style="font-size:.75rem;color:rgba(255,255,255,.2);text-decoration:none" title="Admin Login">Admin</a>
                     </div>
                 </div>
             </div>

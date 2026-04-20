@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!empty($_SESSION['admin_logged_in'])) {
-    header('Location: /admin/index.php'); exit;
+    header('Location: ' . BASE_URL . '/admin/index.php'); exit;
 }
 require_once __DIR__ . '/../config.php';
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && password_verify($password, $user['password_hash'])) {
         $_SESSION['admin_logged_in'] = true;
         $_SESSION['admin_username'] = $user['username'];
-        header('Location: /admin/index.php'); exit;
+        header('Location: ' . BASE_URL . '/admin/index.php'); exit;
     }
     $error = 'Invalid username or password.';
 }
@@ -95,7 +95,7 @@ input:focus{outline:none;border-color:#F5A623;}
     </div>
     <button type="submit" class="btn-login"><i class="fas fa-sign-in-alt"></i> &nbsp;Login</button>
   </form>
-  <div class="back-link"><a href="/index.php">← Back to website</a></div>
+  <div class="back-link"><a href="<?= BASE_URL ?>/index.php">← Back to website</a></div>
 </div>
 </body>
 </html>

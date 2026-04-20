@@ -43,27 +43,27 @@ adminHeader('Dashboard', 'index');
   <div class="adm-card">
     <div class="adm-card-head">
       <h2><i class="fas fa-newspaper" style="color:var(--gold)"></i> Recent Blog Posts</h2>
-      <a href="/admin/blog.php?action=new" class="btn btn-gold btn-sm"><i class="fas fa-plus"></i> New Post</a>
+      <a href="<?= BASE_URL ?>/admin/blog.php?action=new" class="btn btn-gold btn-sm"><i class="fas fa-plus"></i> New Post</a>
     </div>
     <table class="adm-table">
       <thead><tr><th>Title</th><th>Category</th><th>Status</th></tr></thead>
       <tbody>
         <?php foreach ($recentPosts as $p): ?>
         <tr>
-          <td><a href="/admin/blog.php?action=edit&id=<?= $p['id'] ?? '' ?>" style="color:var(--nav);font-weight:500"><?= h(mb_strimwidth($p['title'], 0, 42, '…')) ?></a></td>
+          <td><a href="<?= BASE_URL ?>/admin/blog.php?action=edit&id=<?= $p['id'] ?? '' ?>" style="color:var(--nav);font-weight:500"><?= h(mb_strimwidth($p['title'], 0, 42, '…')) ?></a></td>
           <td><span class="badge badge-blue"><?= h($p['category']) ?></span></td>
           <td><span class="badge <?= $p['is_published'] ? 'badge-green' : 'badge-red' ?>"><?= $p['is_published'] ? 'Live' : 'Draft' ?></span></td>
         </tr>
         <?php endforeach; ?>
       </tbody>
     </table>
-    <div style="margin-top:14px"><a href="/admin/blog.php" class="btn btn-outline btn-sm">View All Posts</a></div>
+    <div style="margin-top:14px"><a href="<?= BASE_URL ?>/admin/blog.php" class="btn btn-outline btn-sm">View All Posts</a></div>
   </div>
 
   <div class="adm-card">
     <div class="adm-card-head">
       <h2><i class="fas fa-film" style="color:#3b82f6"></i> Recent Videos</h2>
-      <a href="/admin/videos.php?action=new" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add Video</a>
+      <a href="<?= BASE_URL ?>/admin/videos.php?action=new" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Add Video</a>
     </div>
     <table class="adm-table">
       <thead><tr><th>Title</th><th>Category</th><th>Status</th></tr></thead>
@@ -77,7 +77,7 @@ adminHeader('Dashboard', 'index');
         <?php endforeach; ?>
       </tbody>
     </table>
-    <div style="margin-top:14px"><a href="/admin/videos.php" class="btn btn-outline btn-sm">View All Videos</a></div>
+    <div style="margin-top:14px"><a href="<?= BASE_URL ?>/admin/videos.php" class="btn btn-outline btn-sm">View All Videos</a></div>
   </div>
 
 </div>
@@ -85,12 +85,12 @@ adminHeader('Dashboard', 'index');
 <div class="adm-card" style="margin-top:0">
   <div class="adm-card-head"><h2>Quick Actions</h2></div>
   <div style="display:flex;flex-wrap:wrap;gap:12px">
-    <a href="/admin/blog.php?action=new"     class="btn btn-gold"><i class="fas fa-plus"></i> New Blog Post</a>
-    <a href="/admin/videos.php?action=new"   class="btn btn-primary"><i class="fas fa-film"></i> Add Video</a>
-    <a href="/admin/hero.php?action=new"     class="btn btn-primary"><i class="fas fa-images"></i> Add Hero Slide</a>
-    <a href="/admin/gallery.php"             class="btn btn-primary"><i class="fas fa-upload"></i> Upload Images</a>
-    <a href="/admin/settings.php"            class="btn btn-outline"><i class="fas fa-cog"></i> Site Settings</a>
-    <a href="/" target="_blank"             class="btn btn-outline"><i class="fas fa-eye"></i> View Website</a>
+    <a href="<?= BASE_URL ?>/admin/blog.php?action=new"     class="btn btn-gold"><i class="fas fa-plus"></i> New Blog Post</a>
+    <a href="<?= BASE_URL ?>/admin/videos.php?action=new"   class="btn btn-primary"><i class="fas fa-film"></i> Add Video</a>
+    <a href="<?= BASE_URL ?>/admin/hero.php?action=new"     class="btn btn-primary"><i class="fas fa-images"></i> Add Hero Slide</a>
+    <a href="<?= BASE_URL ?>/admin/gallery.php"             class="btn btn-primary"><i class="fas fa-upload"></i> Upload Images</a>
+    <a href="<?= BASE_URL ?>/admin/settings.php"            class="btn btn-outline"><i class="fas fa-cog"></i> Site Settings</a>
+    <a href="<?= BASE_URL ?>/" target="_blank"             class="btn btn-outline"><i class="fas fa-eye"></i> View Website</a>
   </div>
 </div>
 

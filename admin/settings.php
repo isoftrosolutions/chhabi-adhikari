@@ -79,7 +79,7 @@ if($msg): ?><div class="alert alert-success"><i class="fas fa-check-circle"></i>
   <div id="tab-hero" class="tab-content">
     <div class="adm-card">
       <div class="adm-card-head"><h2>Hero Section Text</h2></div>
-      <div class="alert alert-info"><i class="fas fa-info-circle"></i> These control the static text on the hero. For dynamic slides, use <a href="/admin/hero.php">Hero Slides</a>.</div>
+      <div class="alert alert-info"><i class="fas fa-info-circle"></i> These control the static text on the hero. For dynamic slides, use <a href="<?= BASE_URL ?>/admin/hero.php">Hero Slides</a>.</div>
       <div class="form-grid">
         <div class="form-group"><label>Eyebrow Label</label><input type="text" name="hero_eyebrow" value="<?=s('hero_eyebrow')?>"></div>
         <div class="form-group"><label>Title Line 1</label><input type="text" name="hero_title_line1" value="<?=s('hero_title_line1','Transform Your Mind.')?>"></div>

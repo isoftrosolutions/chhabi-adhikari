@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = 'edit'; $id = $sid;
     }
 }
-if ($action==='delete'&&$id) { $db->prepare("DELETE FROM services WHERE id=?")->execute([$id]); header('Location: /admin/services.php?msg=deleted'); exit; }
-if ($action==='toggle'&&$id) { $db->prepare("UPDATE services SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: /admin/services.php'); exit; }
+if ($action==='delete'&&$id) { $db->prepare("DELETE FROM services WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/services.php?msg=deleted'); exit; }
+if ($action==='toggle'&&$id) { $db->prepare("UPDATE services SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/services.php'); exit; }
 
 $svc = null;
 if (in_array($action,['edit','new'])&&$id) { $s=$db->prepare("SELECT * FROM services WHERE id=?"); $s->execute([$id]); $svc=$s->fetch(); }
@@ -73,7 +73,7 @@ if ($action === 'list'):
 <div class="adm-card">
   <div class="adm-card-head">
     <h2><?=$s?'Edit Service':'New Service'?></h2>
-    <a href="/admin/services.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Services</a>
+    <a href="<?= BASE_URL ?>/admin/services.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Services</a>
   </div>
   <form method="POST">
     <input type="hidden" name="service_id" value="<?=(int)($s['id']??0)?>">
@@ -111,7 +111,7 @@ if ($action === 'list'):
     </div>
     <div class="form-actions" style="margin-top:20px">
       <button type="submit" class="btn btn-gold"><i class="fas fa-save"></i> Save Service</button>
-      <a href="/admin/services.php" class="btn btn-outline">Cancel</a>
+      <a href="<?= BASE_URL ?>/admin/services.php" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>

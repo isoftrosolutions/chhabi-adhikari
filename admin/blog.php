@@ -54,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Delete
 if ($action === 'delete' && $id) {
     $db->prepare("DELETE FROM blog_posts WHERE id=?")->execute([$id]);
-    header('Location: /admin/blog.php?msg=deleted'); exit;
+    header('Location: ' . BASE_URL . '/admin/blog.php?msg=deleted'); exit;
 }
 
 // Toggle published
 if ($action === 'toggle' && $id) {
     $db->prepare("UPDATE blog_posts SET is_published = 1 - is_published WHERE id=?")->execute([$id]);
-    header('Location: /admin/blog.php'); exit;
+    header('Location: ' . BASE_URL . '/admin/blog.php'); exit;
 }
 
 $post = null;
@@ -133,7 +133,7 @@ else:
 <div class="adm-card">
   <div class="adm-card-head">
     <h2><?= $p ? 'Edit: '.h(mb_strimwidth($p['title'],0,50,'…')) : 'New Blog Post' ?></h2>
-    <a href="/admin/blog.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Posts</a>
+    <a href="<?= BASE_URL ?>/admin/blog.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Posts</a>
   </div>
 
   <form method="POST" enctype="multipart/form-data">
@@ -217,7 +217,7 @@ else:
 
     <div class="form-actions" style="margin-top:20px">
       <button type="submit" class="btn btn-gold"><i class="fas fa-save"></i> Save Post</button>
-      <a href="/admin/blog.php" class="btn btn-outline">Cancel</a>
+      <a href="<?= BASE_URL ?>/admin/blog.php" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>

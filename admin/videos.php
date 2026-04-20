@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = 'edit'; $id = $vid;
     }
 }
-if ($action === 'delete' && $id) { $db->prepare("DELETE FROM videos WHERE id=?")->execute([$id]); header('Location: /admin/videos.php?msg=deleted'); exit; }
-if ($action === 'toggle' && $id) { $db->prepare("UPDATE videos SET is_active = 1-is_active WHERE id=?")->execute([$id]); header('Location: /admin/videos.php'); exit; }
+if ($action === 'delete' && $id) { $db->prepare("DELETE FROM videos WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/videos.php?msg=deleted'); exit; }
+if ($action === 'toggle' && $id) { $db->prepare("UPDATE videos SET is_active = 1-is_active WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/videos.php'); exit; }
 
 $video = null;
 if (in_array($action,['edit','new']) && $id) { $s=$db->prepare("SELECT * FROM videos WHERE id=?"); $s->execute([$id]); $video=$s->fetch(); }
@@ -86,7 +86,7 @@ if ($action === 'list'):
 <div class="adm-card">
   <div class="adm-card-head">
     <h2><?=$v?'Edit Video':'New Video'?></h2>
-    <a href="/admin/videos.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Videos</a>
+    <a href="<?= BASE_URL ?>/admin/videos.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Videos</a>
   </div>
   <form method="POST">
     <input type="hidden" name="video_id" value="<?=(int)($v['id']??0)?>">
@@ -138,7 +138,7 @@ if ($action === 'list'):
     </div>
     <div class="form-actions" style="margin-top:20px">
       <button type="submit" class="btn btn-gold"><i class="fas fa-save"></i> Save Video</button>
-      <a href="/admin/videos.php" class="btn btn-outline">Cancel</a>
+      <a href="<?= BASE_URL ?>/admin/videos.php" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>

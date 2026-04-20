@@ -105,6 +105,14 @@ CREATE TABLE IF NOT EXISTS gallery (
   sort_order INT DEFAULT 0,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE IF NOT EXISTS newsletter_subscribers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255),
+  is_active TINYINT DEFAULT 1,
+  subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 SQL;
 
 foreach (explode(';', $tables) as $sql) {

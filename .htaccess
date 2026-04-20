@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Security: Prevent directory listings
+    Options -Indexes
+
+    # Condition: DO NOT rewrite if the requested URL maps to a physically existing file
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    # Condition: DO NOT rewrite if the requested URL maps to a physically existing directory
+    RewriteCond %{REQUEST_FILENAME} -d
+    # Rule: Serve it directly, stop processing
+    RewriteRule ^ - [L]
+
+    # Everything else gets routed safely into router.php
+    RewriteRule ^(.*)$ router.php [QSA,L]
+</IfModule>

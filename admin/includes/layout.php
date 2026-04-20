@@ -1,14 +1,14 @@
 <?php
 function adminHeader(string $title, string $current = ''): void {
     $nav = [
-        'index'        => ['icon'=>'fas fa-tachometer-alt', 'label'=>'Dashboard',    'url'=>'/admin/index.php'],
-        'hero'         => ['icon'=>'fas fa-images',         'label'=>'Hero Slides',  'url'=>'/admin/hero.php'],
-        'services'     => ['icon'=>'fas fa-th-large',       'label'=>'Services',     'url'=>'/admin/services.php'],
-        'blog'         => ['icon'=>'fas fa-newspaper',      'label'=>'Blog Posts',   'url'=>'/admin/blog.php'],
-        'videos'       => ['icon'=>'fas fa-film',           'label'=>'Videos',       'url'=>'/admin/videos.php'],
-        'testimonials' => ['icon'=>'fas fa-quote-left',     'label'=>'Testimonials', 'url'=>'/admin/testimonials.php'],
-        'gallery'      => ['icon'=>'fas fa-photo-video',    'label'=>'Gallery',      'url'=>'/admin/gallery.php'],
-        'settings'     => ['icon'=>'fas fa-cog',            'label'=>'Settings',     'url'=>'/admin/settings.php'],
+        'index'        => ['icon'=>'fas fa-tachometer-alt', 'label'=>'Dashboard',    'url'=> BASE_URL . '/admin/index.php'],
+        'hero'         => ['icon'=>'fas fa-images',         'label'=>'Hero Slides',  'url'=> BASE_URL . '/admin/hero.php'],
+        'services'     => ['icon'=>'fas fa-th-large',       'label'=>'Services',     'url'=> BASE_URL . '/admin/services.php'],
+        'blog'         => ['icon'=>'fas fa-newspaper',      'label'=>'Blog Posts',   'url'=> BASE_URL . '/admin/blog.php'],
+        'videos'       => ['icon'=>'fas fa-film',           'label'=>'Videos',       'url'=> BASE_URL . '/admin/videos.php'],
+        'testimonials' => ['icon'=>'fas fa-quote-left',     'label'=>'Testimonials', 'url'=> BASE_URL . '/admin/testimonials.php'],
+        'gallery'      => ['icon'=>'fas fa-photo-video',    'label'=>'Gallery',      'url'=> BASE_URL . '/admin/gallery.php'],
+        'settings'     => ['icon'=>'fas fa-cog',            'label'=>'Settings',     'url'=> BASE_URL . '/admin/settings.php'],
     ];
     ?>
 <!DOCTYPE html>
@@ -219,10 +219,10 @@ textarea{resize:vertical;min-height:100px;}
       </a>
     <?php endforeach; ?>
     <div class="adm-nav-label">Site</div>
-    <a href="/" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
+    <a href="<?= BASE_URL ?>/" target="_blank"><i class="fas fa-external-link-alt"></i> View Website</a>
   </nav>
   <div class="adm-sidebar-foot">
-    <a href="/admin/logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+    <a href="<?= BASE_URL ?>/admin/logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
   </div>
 </aside>
 

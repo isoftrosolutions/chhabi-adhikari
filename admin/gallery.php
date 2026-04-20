@@ -41,7 +41,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
         if (file_exists($fullPath)) @unlink($fullPath);
     }
     $db->prepare("DELETE FROM gallery WHERE id=?")->execute([(int)$_GET['id']]);
-    header('Location: /admin/gallery.php?msg=deleted'); exit;
+    header('Location: ' . BASE_URL . '/admin/gallery.php?msg=deleted'); exit;
 }
 
 $images = $db->query("SELECT * FROM gallery ORDER BY created_at DESC")->fetchAll();

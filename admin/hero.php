@@ -38,8 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = 'edit'; $id = $hid;
     }
 }
-if ($action==='delete'&&$id) { $db->prepare("DELETE FROM hero_slides WHERE id=?")->execute([$id]); header('Location: /admin/hero.php?msg=deleted'); exit; }
-if ($action==='toggle'&&$id) { $db->prepare("UPDATE hero_slides SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: /admin/hero.php'); exit; }
+if ($action==='delete'&&$id) { $db->prepare("DELETE FROM hero_slides WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/hero.php?msg=deleted'); exit; }
+if ($action==='toggle'&&$id) { $db->prepare("UPDATE hero_slides SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/hero.php'); exit; }
 
 $slide = null;
 if (in_array($action,['edit','new'])&&$id) { $s=$db->prepare("SELECT * FROM hero_slides WHERE id=?"); $s->execute([$id]); $slide=$s->fetch(); }
@@ -54,7 +54,7 @@ if($error): ?><div class="alert alert-error"><i class="fas fa-exclamation-circle
 if ($action === 'list'):
     $slides = $db->query("SELECT * FROM hero_slides ORDER BY sort_order ASC")->fetchAll();
 ?>
-<div class="alert alert-info"><i class="fas fa-info-circle"></i> Hero slides appear in the homepage hero section. The first active slide is shown by default. You can also use a static layout managed via <a href="/admin/settings.php">Settings</a>.</div>
+<div class="alert alert-info"><i class="fas fa-info-circle"></i> Hero slides appear in the homepage hero section. The first active slide is shown by default. You can also use a static layout managed via <a href="<?= BASE_URL ?>/admin/settings.php">Settings</a>.</div>
 <div class="adm-card">
   <div class="adm-card-head">
     <h2>Hero Slides (<?=count($slides)?>)</h2>
@@ -83,7 +83,7 @@ if ($action === 'list'):
 <div class="adm-card">
   <div class="adm-card-head">
     <h2><?=$sl?'Edit Slide':'New Hero Slide'?></h2>
-    <a href="/admin/hero.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Slides</a>
+    <a href="<?= BASE_URL ?>/admin/hero.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Slides</a>
   </div>
   <form method="POST" enctype="multipart/form-data">
     <input type="hidden" name="hero_id" value="<?=(int)($sl['id']??0)?>">
@@ -143,7 +143,7 @@ if ($action === 'list'):
     </div>
     <div class="form-actions" style="margin-top:20px">
       <button type="submit" class="btn btn-gold"><i class="fas fa-save"></i> Save Slide</button>
-      <a href="/admin/hero.php" class="btn btn-outline">Cancel</a>
+      <a href="<?= BASE_URL ?>/admin/hero.php" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>

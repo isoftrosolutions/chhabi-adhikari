@@ -1,10 +1,15 @@
 <?php
+$docRoot = str_replace('\\', '/', $_SERVER['DOCUMENT_ROOT'] ?? '');
+$dir = str_replace('\\', '/', __DIR__);
+$baseUrl = $docRoot ? str_replace($docRoot, '', $dir) : '';
+define('BASE_URL', rtrim($baseUrl, '/'));
+
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'dschool_cms');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('UPLOAD_DIR', __DIR__ . '/uploads/');
-define('UPLOAD_URL', '/uploads/');
+define('UPLOAD_URL', BASE_URL . '/uploads/');
 
 function getDB(): PDO {
     static $pdo = null;
@@ -18,7 +23,7 @@ function getDB(): PDO {
                  PDO::ATTR_EMULATE_PREPARES => false]
             );
         } catch (PDOException $e) {
-            die('<div style="font-family:sans-serif;padding:40px;background:#fff0f0;border:1px solid #f00;margin:20px;border-radius:8px"><h2>Database Error</h2><p>' . htmlspecialchars($e->getMessage()) . '</p><p><a href="/setup.php">Run Setup</a></p></div>');
+            die('<div style="font-family:sans-serif;padding:40px;background:#fff0f0;border:1px solid #f00;margin:20px;border-radius:8px"><h2>Database Error</h2><p>' . htmlspecialchars($e->getMessage()) . '</p><p><a href="' . BASE_URL . '/setup.php">Run Setup</a></p></div>');
         }
     }
     return $pdo;

@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $action = 'edit'; $id = $tid;
     }
 }
-if ($action==='delete'&&$id) { $db->prepare("DELETE FROM testimonials WHERE id=?")->execute([$id]); header('Location: /admin/testimonials.php?msg=deleted'); exit; }
-if ($action==='toggle'&&$id) { $db->prepare("UPDATE testimonials SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: /admin/testimonials.php'); exit; }
+if ($action==='delete'&&$id) { $db->prepare("DELETE FROM testimonials WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/testimonials.php?msg=deleted'); exit; }
+if ($action==='toggle'&&$id) { $db->prepare("UPDATE testimonials SET is_active=1-is_active WHERE id=?")->execute([$id]); header('Location: ' . BASE_URL . '/admin/testimonials.php'); exit; }
 
 $testi = null;
 if (in_array($action,['edit','new'])&&$id) { $s=$db->prepare("SELECT * FROM testimonials WHERE id=?"); $s->execute([$id]); $testi=$s->fetch(); }
@@ -80,7 +80,7 @@ if ($action === 'list'):
 <div class="adm-card">
   <div class="adm-card-head">
     <h2><?=$t?'Edit Testimonial':'New Testimonial'?></h2>
-    <a href="/admin/testimonials.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Testimonials</a>
+    <a href="<?= BASE_URL ?>/admin/testimonials.php" class="btn btn-outline btn-sm"><i class="fas fa-arrow-left"></i> All Testimonials</a>
   </div>
   <form method="POST">
     <input type="hidden" name="testi_id" value="<?=(int)($t['id']??0)?>">
@@ -121,7 +121,7 @@ if ($action === 'list'):
     </div>
     <div class="form-actions" style="margin-top:20px">
       <button type="submit" class="btn btn-gold"><i class="fas fa-save"></i> Save</button>
-      <a href="/admin/testimonials.php" class="btn btn-outline">Cancel</a>
+      <a href="<?= BASE_URL ?>/admin/testimonials.php" class="btn btn-outline">Cancel</a>
     </div>
   </form>
 </div>
