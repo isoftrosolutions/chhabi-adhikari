@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
     <!-- Page Banner -->
-    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_q9bjvcq9bjvcq9bj.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
+    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_q9bjvcq9bjvcq9bj.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3rem; text-transform: uppercase;">Success Stories</h1>
             <p style="font-size: 1.2rem; opacity: 0.9;">Real People. Real Results. Real Transformation.</p>
@@ -78,7 +78,7 @@
                 <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                     <div style="border-radius: 15px; overflow: hidden; box-shadow: var(--shadow-md);">
                         <video width="100%" height="200" controls>
-                            <source src="chhabi sir/Introduction_%20Dr.%20Chhabi%20Adhikari.mp4" type="video/mp4">
+                            <source src="assets/Introduction_%20Dr.%20Chhabi%20Adhikari.mp4" type="video/mp4">
                         </video>
                         <div style="padding: 15px; background: #fff;">
                             <h5 style="margin: 0;">Introduction to NLP Results</h5>

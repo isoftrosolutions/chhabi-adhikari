@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(php -r \"echo extension_loaded\\('pdo_mysql'\\) ? 'PDO MySQL: YES' : 'PDO MySQL: NO'; echo PHP_EOL;\")"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
 <!-- Page Header -->
-<section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center;">
+<section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center;">
     <div class="container">
         <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Master Your Subconscious Mind (MYSM)</h1>
         <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">A transformational one-day free workshop to unlock your inner potential and achieve excellence.</p>

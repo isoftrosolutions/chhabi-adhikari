@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
     <!-- Page Banner -->
-    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 120px 0; color: #fff; text-align: center; margin-top: 80px;">
+    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 120px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3.5rem; text-transform: uppercase;">NLP SR Master Practitioner</h1>
             <p style="font-size: 1.5rem; opacity: 0.9;">NLP SubConscious ReImprinting — The Ultimate Human Mind Technology</p>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="overview-image">
-                    <img src="chhabi sir/2.png" alt="NLP Master Practitioner" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
+                    <img src="assets/2.png" alt="NLP Master Practitioner" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
                 </div>
             </div>
         </div>

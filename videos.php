@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
     <!-- Page Banner -->
-    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
+    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3rem; text-transform: uppercase;">Video Library</h1>
             <p style="font-size: 1.25rem; opacity: 0.9;">Watch Dr. Chhabi Adhikari's Most Impactful NLP Sessions</p>
@@ -15,8 +15,8 @@
                 <!-- Video 1 -->
                 <div class="blog-card">
                     <div style="background: #000; height: 200px; display: flex; align-items: center; justify-content: center; position: relative;">
-                        <video width="100%" height="100%" poster="chhabi sir/2.png">
-                             <source src="chhabi sir/Introduction_ Dr. Chhabi Adhikari.mp4" type="video/mp4">
+                        <video width="100%" height="100%" poster="assets/2.png">
+                             <source src="assets/Introduction_ Dr. Chhabi Adhikari.mp4" type="video/mp4">
                         </video>
                         <i class="fas fa-play" style="position: absolute; color: #fff; font-size: 3rem; cursor: pointer; opacity: 0.8;"></i>
                     </div>

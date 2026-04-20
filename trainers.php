@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
 <!-- Page Header -->
-<section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center;">
+<section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center;">
     <div class="container">
         <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Our NLP Trainers</h1>
         <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">Meet the dedicated team of certified professionals led by Dr. Chhabi Adhikari, committed to your personal and professional transformation.</p>
@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row" style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center; margin-bottom: 80px;">
             <div style="flex: 1; min-width: 300px;">
-                <img src="chhabi sir/2.png" alt="Dr. Chhabi Adhikari" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow-lg);">
+                <img src="assets/2.png" alt="Dr. Chhabi Adhikari" style="width: 100%; border-radius: 15px; box-shadow: var(--shadow-lg);">
             </div>
             <div style="flex: 1.5; min-width: 300px;">
                 <h2 style="color: var(--primary); margin-bottom: 20px;">Dr. Chhabi Adhikari</h2>

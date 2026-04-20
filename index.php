@@ -1,272 +1,1322 @@
 <?php include 'includes/header.php'; ?>
 
-    <!-- Section 1: Hero Slider -->
-    <section class="hero-slider" id="home">
-        <div class="slides-container">
-            <!-- Slide 1 -->
-            <div class="slide active" style="background: linear-gradient(rgba(26, 47, 90, 0.7), rgba(26, 47, 90, 0.7)), url('chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover;">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>DR. CHHABI ADHIKARI</h1>
-                        <p class="tagline">Transforming Mindset, Transforming Lives..!!</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="slide" style="background: linear-gradient(rgba(26, 47, 90, 0.7), rgba(26, 47, 90, 0.7)), url('chhabi sir/Gemini_Generated_Image_pl1l98pl1l98pl1l.png') center/cover;">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>MASTER YOUR MIND</h1>
-                        <p class="tagline">Unlock the power of your Subconscious Mind with NLP</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="slide" style="background: linear-gradient(rgba(26, 47, 90, 0.7), rgba(26, 47, 90, 0.7)), url('chhabi sir/Gemini_Generated_Image_kwsdyvkwsdyvkwsd.png') center/cover;">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1 class="miracle-book-title">AWAKEN THE GOD OF MIRACLE</h1>
-                        <p class="tagline">Book worth Rs. 11,000 completely FREE</p>
-                        <div class="hero-btns">
-                            <a href="#" class="btn-primary">DOWNLOAD NOW</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Slider Controls -->
-        <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </section>
+<style>
+/* ─── Reset & Base ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Section 2: Tagline / Value Proposition -->
-    <section class="tagline-section">
-        <div class="container">
-            <h3>"You have a deep desire to live a life that is full of joy, passion, health & wealth..."</h3>
-            <p style="max-width: 800px; margin: 0 auto; color: var(--text-grey);">D-School System, founded by Dr. Chhabi Adhikari, is dedicated to helping individuals unlock their subconscious potential. Through Neuro-Linguistic Programming and advanced coaching techniques, we empower you to overcome limitations and achieve lasting excellence.</p>
-        </div>
-    </section>
+/* ─── Animations ───────────────────────────────────────── */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes scaleIn  { from { opacity:0; transform:scale(.94); } to { opacity:1; transform:scale(1); } }
+@keyframes ticker   { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+@keyframes float    { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+@keyframes shimmer  { 0%{background-position:-400px 0;} 100%{background-position:400px 0;} }
+@keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(245,166,35,.5);} 70%{box-shadow:0 0 0 18px rgba(245,166,35,0);} 100%{box-shadow:0 0 0 0 rgba(245,166,35,0);} }
 
-    <!-- Section 3: Empower Each Area of Your Life (Course Cards) -->
-    <section class="course-section">
-        <div class="container">
-            <h2>Empower Each area of your Life</h2>
-            <p style="text-align: center; color: var(--text-grey);">Solution that Fulfills all your Needs..!!</p>
-            
-            <div class="course-grid">
-                <!-- Card 1 -->
-                <div class="course-card">
+.reveal { opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+.reveal-delay-3 { transition-delay:.3s; }
+.reveal-delay-4 { transition-delay:.4s; }
+
+/* ─── Section Shared ───────────────────────────────────── */
+.idx-section { padding: 90px 0; }
+.idx-container { max-width:1200px; margin:0 auto; padding:0 24px; }
+
+.idx-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--secondary);
+    text-align: center;
+    margin-bottom: 14px;
+    line-height: 1.15;
+    letter-spacing: -.5px;
+}
+.idx-heading--light { color: #fff; }
+.idx-subheading {
+    text-align: center;
+    color: var(--text-grey);
+    font-size: 1.05rem;
+    margin-bottom: 55px;
+    line-height: 1.6;
+}
+.idx-subheading--light { color: rgba(255,255,255,.75); }
+
+.gold-bar {
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    border-radius: 4px;
+    margin: 0 auto 14px;
+}
+
+/* ─── 1. HERO ──────────────────────────────────────────── */
+.idx-hero {
+    position: relative;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(155deg, #0d1b35 0%, #1a2f5a 45%, #0f2040 100%);
+}
+.idx-hero__bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 80% 20%, rgba(245,166,35,.12) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(245,166,35,.07) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,.015) 60px, rgba(255,255,255,.015) 61px);
+    pointer-events: none;
+}
+.idx-hero__inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 60px 24px 140px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+.idx-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(245,166,35,.15);
+    border: 1px solid rgba(245,166,35,.35);
+    color: var(--primary);
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(6px);
+    animation: fadeIn .8s ease forwards;
+}
+.idx-hero__eyebrow i { font-size: .9rem; }
+.idx-hero__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    animation: fadeUp .9s ease .1s both;
+}
+.idx-hero__title em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--primary), #ffd166);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.idx-hero__sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.78);
+    line-height: 1.75;
+    margin-bottom: 40px;
+    max-width: 480px;
+    animation: fadeUp .9s ease .2s both;
+}
+.idx-hero__actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp .9s ease .3s both;
+}
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 32px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: #fff;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgba(245,166,35,.35);
+    transition: all .3s ease;
+    animation: pulse-ring 2.5s infinite;
+}
+.btn-gold:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(245,166,35,.5); }
+.btn-ghost-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 30px;
+    border: 2px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-weight: 600;
+    font-size: .9rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,.07);
+    transition: all .3s ease;
+}
+.btn-ghost-white:hover { border-color:rgba(255,255,255,.7); background:rgba(255,255,255,.15); transform:translateY(-2px); }
+
+/* Hero right — image */
+.idx-hero__image-wrap {
+    position: relative;
+    animation: scaleIn 1s ease .2s both;
+}
+.idx-hero__image-frame {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.4);
+}
+.idx-hero__image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,20,50,.6) 0%, transparent 55%);
+    z-index: 1;
+    border-radius: 24px;
+}
+.idx-hero__image-frame img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+.idx-hero__image-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 2;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 16px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #fff;
+}
+.idx-hero__image-badge i { font-size: 1.5rem; color: var(--primary); }
+.idx-hero__image-badge strong { font-size: 1.3rem; display: block; font-family: var(--font-heading); }
+.idx-hero__image-badge span { font-size: .78rem; opacity: .8; }
+.idx-hero__deco-ring {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px dashed rgba(245,166,35,.4);
+    animation: float 4s ease-in-out infinite;
+    pointer-events: none;
+}
+.idx-hero__deco-dot {
+    position: absolute;
+    bottom: -15px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(245,166,35,.2);
+    animation: float 5s ease-in-out infinite reverse;
+    pointer-events: none;
+}
+
+/* Stats bar */
+.idx-hero__stats {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    padding: 0 24px 32px;
+    animation: fadeUp .9s ease .5s both;
+}
+.idx-hero__stats-inner {
+    display: flex;
+    gap: 12px;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 60px;
+    padding: 14px 28px;
+}
+.stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 18px;
+    background: rgba(255,255,255,.95);
+    border-radius: 40px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+.stat-pill__num {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+.stat-pill__label {
+    font-size: .72rem;
+    color: var(--secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    line-height: 1.2;
+}
+
+/* ─── 2. MARQUEE ───────────────────────────────────────── */
+.idx-marquee {
+    background: var(--secondary);
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.idx-marquee__track {
+    display: inline-flex;
+    animation: ticker 28s linear infinite;
+}
+.idx-marquee__track:hover { animation-play-state: paused; }
+.idx-marquee__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+    padding: 0 30px;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+.idx-marquee__item span { color: rgba(255,255,255,.25); font-size: 1.2rem; }
+
+/* ─── 3. ABOUT ─────────────────────────────────────────── */
+.idx-about { background: var(--bg-light); }
+.idx-about__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+.idx-about__img-wrap {
+    position: relative;
+}
+.idx-about__img-frame {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+.idx-about__img-frame::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark), var(--secondary));
+    z-index: -1;
+}
+.idx-about__img-frame img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 18px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.idx-about__years-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(245,166,35,.5);
+    z-index: 2;
+    text-align: center;
+    animation: float 4s ease-in-out infinite;
+}
+.idx-about__years-badge strong { font-family: var(--font-heading); font-size: 1.7rem; line-height: 1; }
+.idx-about__years-badge span { font-size: .65rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; opacity: .9; }
+.idx-about__deco {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 80px;
+    height: 80px;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    opacity: .35;
+    animation: float 5s ease-in-out infinite reverse;
+}
+
+.idx-about__eyebrow {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.idx-about__eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--primary); border-radius:2px; }
+.idx-about__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    color: var(--secondary);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -.5px;
+}
+.idx-about__text {
+    color: var(--text-grey);
+    font-size: .97rem;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+.idx-about__credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 28px 0 36px;
+}
+.cred-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #fff;
+    border: 1.5px solid var(--border-color);
+    border-radius: 30px;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--secondary);
+    box-shadow: var(--shadow-sm);
+    transition: all .3s ease;
+}
+.cred-badge:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
+.cred-badge i { color: var(--primary); }
+.idx-about__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-navy {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 30px;
+    background: var(--secondary);
+    color: #fff;
+    font-weight: 700;
+    font-size: .88rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all .3s ease;
+    box-shadow: 0 6px 20px rgba(26,47,90,.25);
+}
+.btn-navy:hover { background: #0d1b35; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,47,90,.35); }
+.btn-outline-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 28px;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+    font-size: .88rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all .3s ease;
+}
+.btn-outline-gold:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+
+/* ─── 4. SERVICES ──────────────────────────────────────── */
+.idx-services { background: var(--bg-section); }
+.idx-services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+.svc-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 36px 28px;
+    box-shadow: var(--shadow-sm);
+    transition: all .35s cubic-bezier(.165,.84,.44,1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+.svc-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+.svc-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.svc-card:hover::after { transform: scaleX(1); }
+.svc-card__icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 20px rgba(245,166,35,.3);
+    transition: transform .3s ease;
+}
+.svc-card:hover .svc-card__icon { transform: scale(1.08) rotate(-4deg); }
+.svc-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+.svc-card__desc {
+    font-size: .88rem;
+    color: var(--text-grey);
+    line-height: 1.65;
+    margin-bottom: 22px;
+}
+.svc-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: all .3s ease;
+}
+.svc-card:hover .svc-card__link { opacity: 1; transform: translateY(0); }
+.svc-card__link:hover { gap: 11px; }
+
+/* ─── 5. WHY US ────────────────────────────────────────── */
+.idx-why {
+    background: linear-gradient(135deg, var(--secondary) 0%, #0d1b35 100%);
+    position: relative;
+    overflow: hidden;
+}
+.idx-why::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+.idx-why::after {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+.idx-why__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 36px;
+    position: relative;
+    z-index: 1;
+}
+.why-item { text-align: center; }
+.why-item__icon-wrap {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(245,166,35,.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px;
+    font-size: 1.8rem;
+    color: var(--primary);
+    background: rgba(245,166,35,.08);
+    transition: all .3s ease;
+}
+.why-item:hover .why-item__icon-wrap { background: rgba(245,166,35,.18); border-color: var(--primary); transform: scale(1.08); }
+.why-item__num {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.why-item__title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.why-item__desc { font-size: .85rem; color: rgba(255,255,255,.6); line-height: 1.6; }
+
+/* ─── 6. TESTIMONIALS ──────────────────────────────────── */
+.idx-testimonials { background: var(--bg-section); }
+.idx-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+}
+.testi-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 34px 28px;
+    border-left: 4px solid var(--primary);
+    box-shadow: var(--shadow-sm);
+    transition: all .35s ease;
+    position: relative;
+}
+.testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.testi-card__quote-icon {
+    font-size: 2.4rem;
+    color: var(--primary);
+    opacity: .2;
+    line-height: 1;
+    margin-bottom: 10px;
+    display: block;
+}
+.testi-card__text {
+    font-style: italic;
+    color: var(--text-grey);
+    font-size: .93rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+}
+.testi-card__stars { color: var(--primary); font-size: .85rem; margin-bottom: 16px; letter-spacing: 2px; }
+.testi-card__author { display: flex; align-items: center; gap: 14px; }
+.testi-card__avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary), #1a3a6a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.testi-card__name { font-weight: 700; font-size: .92rem; color: var(--secondary); margin-bottom: 3px; }
+.testi-card__role { font-size: .78rem; color: var(--text-grey); }
+.idx-testimonials__cta { text-align: center; }
+
+/* ─── 7. VIDEOS ────────────────────────────────────────── */
+.idx-videos {
+    background: #0b1624;
+    position: relative;
+    overflow: hidden;
+}
+.idx-videos::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(245,166,35,.08) 0%, transparent 60%);
+    pointer-events: none;
+}
+.idx-videos__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 44px;
+    position: relative;
+    z-index: 1;
+}
+.vid-thumb {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+    transition: transform .35s ease;
+}
+.vid-thumb:hover { transform: translateY(-6px); }
+.vid-thumb__bg {
+    width: 100%; height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vid-thumb__bg-1 { background: linear-gradient(135deg, #1a2f5a, #2d4a8a); }
+.vid-thumb__bg-2 { background: linear-gradient(135deg, #7c3aed, #4f26b5); }
+.vid-thumb__bg-3 { background: linear-gradient(135deg, #059669, #027a50); }
+.vid-thumb__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: background .3s ease;
+}
+.vid-thumb:hover .vid-thumb__overlay { background: rgba(0,0,0,.5); }
+.vid-play {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(245,166,35,.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.2rem;
+    box-shadow: 0 0 0 10px rgba(245,166,35,.2);
+    transition: all .3s ease;
+}
+.vid-thumb:hover .vid-play { transform: scale(1.12); box-shadow: 0 0 0 14px rgba(245,166,35,.2); }
+.vid-thumb__label {
+    color: rgba(255,255,255,.9);
+    font-size: .82rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 16px;
+    text-shadow: 0 1px 4px rgba(0,0,0,.5);
+}
+.idx-videos__cta { text-align: center; position: relative; z-index: 1; }
+
+/* ─── 8. BLOG PREVIEW ──────────────────────────────────── */
+.idx-blog { background: var(--bg-light); }
+.idx-blog__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+}
+.bp-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all .35s ease;
+}
+.bp-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.bp-card__img {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: rgba(255,255,255,.5);
+}
+.bp-img-1 { background: linear-gradient(135deg, #1a2f5a, #3b5998); }
+.bp-img-2 { background: linear-gradient(135deg, #F5A623, #E87722); }
+.bp-img-3 { background: linear-gradient(135deg, #059669, #047857); }
+.bp-card__cat {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(255,255,255,.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+.bp-card__body { padding: 26px 24px; }
+.bp-card__date { font-size: .76rem; color: var(--text-grey); margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+.bp-card__date i { color: var(--primary); }
+.bp-card__title { font-family: var(--font-heading); font-size: 1.05rem; color: var(--secondary); font-weight: 700; line-height: 1.35; margin-bottom: 10px; }
+.bp-card__excerpt { font-size: .85rem; color: var(--text-grey); line-height: 1.6; margin-bottom: 18px; }
+.bp-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .82rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    transition: gap .3s ease;
+}
+.bp-card__link:hover { gap: 10px; color: var(--primary-dark); }
+.idx-blog__cta { text-align: center; }
+
+/* ─── 9. CTA BANNER ────────────────────────────────────── */
+.idx-cta {
+    background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 50%, #c85f00 100%);
+    padding: 90px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.idx-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+}
+.idx-cta__inner { position: relative; z-index: 1; }
+.idx-cta__tag {
+    display: inline-block;
+    background: rgba(255,255,255,.2);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 30px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,.3);
+}
+.idx-cta__heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.15;
+}
+.idx-cta__sub {
+    color: rgba(255,255,255,.85);
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.65;
+}
+.idx-cta__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 34px;
+    background: #fff;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 28px rgba(0,0,0,.15);
+    transition: all .3s ease;
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(0,0,0,.22); }
+.btn-ghost-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border: 2px solid rgba(255,255,255,.5);
+    color: #fff;
+    font-weight: 700;
+    font-size: .9rem;
+    text-transform: uppercase;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all .3s ease;
+    background: rgba(255,255,255,.08);
+}
+.btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,.18); transform: translateY(-2px); }
+
+/* ─── Responsive ───────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .idx-hero__inner { grid-template-columns: 1fr; gap: 40px; padding-bottom: 160px; }
+    .idx-hero__image-wrap { display: none; }
+    .idx-about__grid { grid-template-columns: 1fr; gap: 50px; }
+    .idx-services__grid { grid-template-columns: repeat(2, 1fr); }
+    .idx-why__grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .idx-testimonials__grid { grid-template-columns: 1fr 1fr; }
+    .idx-videos__grid { grid-template-columns: 1fr 1fr; }
+    .idx-blog__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .idx-hero__stats-inner { flex-wrap: wrap; gap: 8px; border-radius: 20px; }
+    .idx-hero__title { font-size: clamp(2rem,8vw,3rem); }
+    .idx-services__grid { grid-template-columns: 1fr; }
+    .idx-why__grid { grid-template-columns: 1fr 1fr; }
+    .idx-testimonials__grid { grid-template-columns: 1fr; }
+    .idx-videos__grid { grid-template-columns: 1fr; }
+    .idx-blog__grid { grid-template-columns: 1fr; }
+    .idx-about__img-frame img { height: 340px; }
+    .idx-about__years-badge { width: 90px; height: 90px; bottom:-14px; right:-14px; }
+}
+@media (max-width: 480px) {
+    .idx-hero__actions { flex-direction: column; }
+    .idx-hero__actions a { width: 100%; justify-content: center; }
+    .idx-why__grid { grid-template-columns: 1fr; }
+    .idx-cta__actions { flex-direction: column; align-items: center; }
+}
+</style>
+
+<!-- ═══════════════════════════════════════════════════════════
+     1. HERO
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-hero">
+    <div class="idx-hero__bg-pattern"></div>
+
+    <div class="idx-hero__inner">
+        <!-- Left: Copy -->
+        <div class="idx-hero__copy">
+            <div class="idx-hero__eyebrow">
+                <i class="fas fa-brain"></i>
+                Nepal's Leading NLP Institute
+            </div>
+            <h1 class="idx-hero__title">
+                Transform Your <em>Mind.</em><br>
+                Transform Your <em>Life.</em>
+            </h1>
+            <p class="idx-hero__sub">
+                Discover the power of Neuro-Linguistic Programming with Dr. Chhabi Adhikari — Nepal's most trusted NLP trainer with over two decades of transformational impact.
+            </p>
+            <div class="idx-hero__actions">
+                <a href="courses.php" class="btn-gold">
+                    <i class="fas fa-graduation-cap"></i> Explore Programs
+                </a>
+                <a href="videos.php" class="btn-ghost-white">
+                    <i class="fas fa-play-circle"></i> Watch Videos
+                </a>
+            </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div class="idx-hero__image-wrap">
+            <div class="idx-hero__deco-ring"></div>
+            <div class="idx-hero__deco-dot"></div>
+            <div class="idx-hero__image-frame">
+                <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png"
+                     alt="Dr. Chhabi Adhikari — NLP Master Trainer">
+                <div class="idx-hero__image-badge">
+                    <i class="fas fa-award"></i>
+                    <div>
+                        <strong>Dr. Chhabi</strong>
+                        <span>NLP Master Trainer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="idx-hero__stats">
+        <div class="idx-hero__stats-inner">
+            <div class="stat-pill">
+                <span class="stat-pill__num">2+</span>
+                <span class="stat-pill__label">Decades of<br>Experience</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-pill__num">1M+</span>
+                <span class="stat-pill__label">Lives<br>Touched</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-pill__num">20+</span>
+                <span class="stat-pill__label">Cities<br>Reached</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-pill__num">50+</span>
+                <span class="stat-pill__label">Programs<br>Delivered</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     2. MARQUEE
+═══════════════════════════════════════════════════════════ -->
+<div class="idx-marquee" aria-hidden="true">
+    <div class="idx-marquee__track">
+        <?php
+        $items = ['NLP Master Practitioner','Life Coach Training','Money Mastery','Wellness Practitioner','Corporate Training','Student Programs','Online Courses','Subconscious Reprogramming','Personal Transformation','NLP Practitioner'];
+        $html = '';
+        foreach ($items as $item) {
+            $html .= "<span class='idx-marquee__item'>{$item}<span>·</span></span>";
+        }
+        echo str_repeat($html, 2);
+        ?>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     3. ABOUT DR. CHHABI
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-about" aria-labelledby="about-heading">
+    <div class="idx-container">
+        <div class="idx-about__grid">
+
+            <!-- Image -->
+            <div class="idx-about__img-wrap reveal">
+                <div class="idx-about__deco"></div>
+                <div class="idx-about__img-frame">
+                    <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png"
+                         alt="Dr. Chhabi Adhikari — Founder of D-School System" loading="lazy">
+                </div>
+                <div class="idx-about__years-badge">
+                    <strong>20+</strong>
+                    <span>Years<br>Expert</span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="reveal reveal-delay-1">
+                <p class="idx-about__eyebrow">Meet the Founder</p>
+                <h2 class="idx-about__title" id="about-heading">
+                    Dr. Chhabi Adhikari —<br>Nepal's Foremost NLP Authority
+                </h2>
+                <p class="idx-about__text">
+                    For more than two decades, Dr. Chhabi Adhikari has been transforming lives through Neuro-Linguistic Programming. His generative learning methodology uniquely helps participants learn, experience, and apply NLP in a simple yet profoundly effective way.
+                </p>
+                <p class="idx-about__text">
+                    With workshops spanning Kathmandu, Pokhara, Butwal, Chitwan, and beyond — and NLP videos watched by millions — Dr. Chhabi is Nepal's most trusted voice in personal transformation, leadership, and the science of the subconscious mind.
+                </p>
+
+                <div class="idx-about__credentials">
+                    <span class="cred-badge"><i class="fas fa-certificate"></i> Certified NLP Trainer</span>
+                    <span class="cred-badge"><i class="fas fa-globe-asia"></i> Nepal's #1 NLP Institute</span>
+                    <span class="cred-badge"><i class="fas fa-users"></i> 1M+ Lives Reached</span>
+                    <span class="cred-badge"><i class="fas fa-building"></i> Corporate & Personal</span>
+                </div>
+
+                <div class="idx-about__actions">
+                    <a href="about.php" class="btn-navy">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                    <a href="contact.php" class="btn-outline-gold">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     4. SERVICES
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-services" aria-labelledby="services-heading">
+    <div class="idx-container">
+        <span class="gold-bar reveal"></span>
+        <h2 class="idx-heading reveal reveal-delay-1" id="services-heading">Our Transformational Programs</h2>
+        <p class="idx-subheading reveal reveal-delay-2">Expertly designed programs to empower every area of your life</p>
+
+        <div class="idx-services__grid">
+            <article class="svc-card reveal">
+                <div class="svc-card__icon"><i class="fas fa-brain"></i></div>
+                <h3 class="svc-card__title">NLP Master Practitioner</h3>
+                <p class="svc-card__desc">The complete 5-day transformational NLP workshop. Master your subconscious mind and unlock extraordinary potential.</p>
+                <a href="courses.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="svc-card reveal reveal-delay-1">
+                <div class="svc-card__icon"><i class="fas fa-user-tie"></i></div>
+                <h3 class="svc-card__title">Train the Competent Life Coach</h3>
+                <p class="svc-card__desc">A 14-day residential workshop to become a certified professional life coach. Transform others as you transform yourself.</p>
+                <a href="ttclc.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="svc-card reveal reveal-delay-2">
+                <div class="svc-card__icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3 class="svc-card__title">NLP Practitioner</h3>
+                <p class="svc-card__desc">Your first step into the science of NLP. Learn to reprogram limiting beliefs and create lasting behavioural change.</p>
+                <a href="nlp-practitioner.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="svc-card reveal reveal-delay-3">
+                <div class="svc-card__icon"><i class="fas fa-coins"></i></div>
+                <h3 class="svc-card__title">Money Mastery</h3>
+                <p class="svc-card__desc">Dissolve your money blocks and reprogram a wealth mindset. Discover the psychology behind financial abundance.</p>
+                <a href="money.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="svc-card reveal reveal-delay-4">
+                <div class="svc-card__icon"><i class="fas fa-book-open"></i></div>
+                <h3 class="svc-card__title">Student Memory Mastery</h3>
+                <p class="svc-card__desc">Enhance concentration, memory, and exam performance. The perfect gift to give your child a lasting academic edge.</p>
+                <a href="memory.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+
+            <article class="svc-card reveal reveal-delay-4">
+                <div class="svc-card__icon"><i class="fas fa-building"></i></div>
+                <h3 class="svc-card__title">Corporate Training</h3>
+                <p class="svc-card__desc">Customised in-house programs for organisations seeking leadership excellence, team cohesion, and peak performance culture.</p>
+                <a href="personal-counseling.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     5. WHY CHOOSE US
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-why" aria-labelledby="why-heading">
+    <div class="idx-container">
+        <span class="gold-bar reveal"></span>
+        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="why-heading">Why D-School System?</h2>
+        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2">The standard of excellence that sets us apart</p>
+
+        <div class="idx-why__grid">
+            <div class="why-item reveal">
+                <div class="why-item__icon-wrap"><i class="fas fa-user-graduate"></i></div>
+                <div class="why-item__num">20+</div>
+                <div class="why-item__title">Expert Trainer</div>
+                <p class="why-item__desc">Over two decades of hands-on NLP training experience from Nepal's most certified practitioner.</p>
+            </div>
+            <div class="why-item reveal reveal-delay-1">
+                <div class="why-item__icon-wrap"><i class="fas fa-chart-line"></i></div>
+                <div class="why-item__num">1M+</div>
+                <div class="why-item__title">Lives Impacted</div>
+                <p class="why-item__desc">From personal counselling to mass workshops — a proven track record of real, measurable transformation.</p>
+            </div>
+            <div class="why-item reveal reveal-delay-2">
+                <div class="why-item__icon-wrap"><i class="fas fa-certificate"></i></div>
+                <div class="why-item__num">50+</div>
+                <div class="why-item__title">Certified Programs</div>
+                <p class="why-item__desc">Internationally aligned curricula, taught in a simple, practical, and deeply effective way.</p>
+            </div>
+            <div class="why-item reveal reveal-delay-3">
+                <div class="why-item__icon-wrap"><i class="fas fa-infinity"></i></div>
+                <div class="why-item__num">∞</div>
+                <div class="why-item__title">Lasting Results</div>
+                <p class="why-item__desc">No temporary fixes. Our subconscious reprogramming approach delivers permanent life change.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     6. TESTIMONIALS
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-testimonials" aria-labelledby="testi-heading">
+    <div class="idx-container">
+        <span class="gold-bar reveal"></span>
+        <h2 class="idx-heading reveal reveal-delay-1" id="testi-heading">Success Stories</h2>
+        <p class="idx-subheading reveal reveal-delay-2">Real transformations from real people</p>
+
+        <div class="idx-testimonials__grid">
+            <div class="testi-card reveal">
+                <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p class="testi-card__text">"Dr. Chhabi's NLP workshop completely changed the way I see myself and my business. Within three months of applying what I learned, my income doubled. The subconscious reprogramming is real and it works."</p>
+                <div class="testi-card__stars">★★★★★</div>
+                <div class="testi-card__author">
+                    <div class="testi-card__avatar">R</div>
+                    <div>
+                        <div class="testi-card__name">Rajesh Shrestha</div>
+                        <div class="testi-card__role">Entrepreneur, Kathmandu</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card reveal reveal-delay-1">
+                <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p class="testi-card__text">"I attended the NLP Master Practitioner workshop feeling stuck in life. I left with a completely new mindset. Dr. Chhabi has a gift for making complex psychology feel natural and immediately applicable."</p>
+                <div class="testi-card__stars">★★★★★</div>
+                <div class="testi-card__author">
+                    <div class="testi-card__avatar">S</div>
+                    <div>
+                        <div class="testi-card__name">Sunita Thapa</div>
+                        <div class="testi-card__role">Teacher & Life Coach, Pokhara</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card reveal reveal-delay-2">
+                <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
+                <p class="testi-card__text">"The Student Memory Mastery program was a game-changer for my son. His grades improved dramatically and — more importantly — his confidence soared. Thank you, Dr. Chhabi!"</p>
+                <div class="testi-card__stars">★★★★★</div>
+                <div class="testi-card__author">
+                    <div class="testi-card__avatar">P</div>
+                    <div>
+                        <div class="testi-card__name">Priya Adhikari</div>
+                        <div class="testi-card__role">Parent, Chitwan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="idx-testimonials__cta reveal">
+            <a href="success-stories.php" class="btn-navy">
+                <i class="fas fa-star"></i> View All Success Stories
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     7. VIDEOS
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-videos" aria-labelledby="videos-heading">
+    <div class="idx-container">
+        <span class="gold-bar reveal"></span>
+        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="videos-heading">Watch &amp; Learn</h2>
+        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2">Free NLP insights from Dr. Chhabi — watch, learn, and transform</p>
+
+        <div class="idx-videos__grid">
+            <div class="vid-thumb reveal">
+                <div class="vid-thumb__bg vid-thumb__bg-1"></div>
+                <div class="vid-thumb__overlay">
+                    <div class="vid-play"><i class="fas fa-play"></i></div>
+                    <span class="vid-thumb__label">Introduction to NLP<br>& Subconscious Mind</span>
+                </div>
+            </div>
+            <div class="vid-thumb reveal reveal-delay-1">
+                <div class="vid-thumb__bg vid-thumb__bg-2"></div>
+                <div class="vid-thumb__overlay">
+                    <div class="vid-play"><i class="fas fa-play"></i></div>
+                    <span class="vid-thumb__label">How to Reprogram<br>Your Money Mindset</span>
+                </div>
+            </div>
+            <div class="vid-thumb reveal reveal-delay-2">
+                <div class="vid-thumb__bg vid-thumb__bg-3"></div>
+                <div class="vid-thumb__overlay">
+                    <div class="vid-play"><i class="fas fa-play"></i></div>
+                    <span class="vid-thumb__label">NLP Anchoring Technique<br>for Instant Confidence</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="idx-videos__cta reveal">
+            <a href="videos.php" class="btn-gold">
+                <i class="fas fa-film"></i> View All Videos
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     8. BLOG PREVIEW
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-blog" aria-labelledby="blog-heading">
+    <div class="idx-container">
+        <span class="gold-bar reveal"></span>
+        <h2 class="idx-heading reveal reveal-delay-1" id="blog-heading">Latest Insights</h2>
+        <p class="idx-subheading reveal reveal-delay-2">Thoughts on NLP, mindset, leadership &amp; personal growth</p>
+
+        <div class="idx-blog__grid">
+            <article class="bp-card reveal">
+                <div class="bp-card__img bp-img-1">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="bp-card__cat">Business</span>
+                </div>
+                <div class="bp-card__body">
+                    <p class="bp-card__date"><i class="fas fa-calendar"></i> April 10, 2026</p>
+                    <h3 class="bp-card__title">7 Secrets to Grow Your Business Beyond Limits</h3>
+                    <p class="bp-card__excerpt">Being a businessperson opens unlimited opportunities. Discover the subconscious secrets behind scaling up your business and leading with impact.</p>
+                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="bp-card reveal reveal-delay-1">
+                <div class="bp-card__img bp-img-2">
+                    <i class="fas fa-eye"></i>
+                    <span class="bp-card__cat">Mindset</span>
+                </div>
+                <div class="bp-card__body">
+                    <p class="bp-card__date"><i class="fas fa-calendar"></i> April 5, 2026</p>
+                    <h3 class="bp-card__title">Whatever You Focus Upon Expands</h3>
+                    <p class="bp-card__excerpt">A simple yet profound rule of the subconscious mind. Learn to direct your focus intentionally and watch every area of your life transform.</p>
+                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <article class="bp-card reveal reveal-delay-2">
+                <div class="bp-card__img bp-img-3">
                     <i class="fas fa-users"></i>
-                    <h3>NLP SR Master Practitioner</h3>
-                    <p>Learn the complete NLP. Be the part of most exciting and transformational 5 days workshop.</p>
-                    <a href="courses.php">VIEW DETAILS →</a>
+                    <span class="bp-card__cat">Leadership</span>
                 </div>
-                <!-- Card 2 -->
-                <div class="course-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Train The Competent Life Coach</h3>
-                    <p>A 14 day residential workshop to become a certified professional coach.</p>
-                    <a href="ttclc.php">VIEW DETAILS →</a>
+                <div class="bp-card__body">
+                    <p class="bp-card__date"><i class="fas fa-calendar"></i> March 28, 2026</p>
+                    <h3 class="bp-card__title">Handling People in Business: The Art of Influence</h3>
+                    <p class="bp-card__excerpt">Enhance team productivity by mastering NLP-based influence and motivation strategies that bring out the best in every person around you.</p>
+                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <!-- Card 3 -->
-                <div class="course-card">
-                    <i class="fas fa-laptop"></i>
-                    <h3>Online Courses</h3>
-                    <p>Learn with your pace and at your time with our digital academy programs.</p>
-                    <a href="online-courses.php">VIEW DETAILS →</a>
-                </div>
-                <!-- Card 4 -->
-                <div class="course-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Coaching & Mentoring</h3>
-                    <p>Get the right mindset & resourcefulness. Get Results 10X faster with personal guidance.</p>
-                    <a href="personal-counseling.php">VIEW DETAILS →</a>
-                </div>
-                <!-- Card 5 -->
-                <div class="course-card">
-                    <i class="fas fa-headphones"></i>
-                    <h3>Audio Programs</h3>
-                    <p>Specially designed to positively program your mind through subconscious reprinting.</p>
-                    <a href="audio.php">VIEW DETAILS →</a>
-                </div>
-            </div>
+            </article>
         </div>
-    </section>
 
-    <!-- Section 4: NLP SubConscious ReImprinting (Feature Grid) -->
-    <section class="feature-section">
-        <div class="container">
-            <h2 style="text-align: left; margin-bottom: 50px;">NLP SubConscious ReImprinting</h2>
-            <div class="feature-layout">
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Expert Trainer</h4>
-                            <p>Dr. Chhabi Adhikari brings decades of experience in NLP training.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Proven Techniques</h4>
-                            <p>Methodologies that have transformed thousands of lives globally.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>New Strategies</h4>
-                            <p>Learn new strategies that work in today's complex psychological world.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Lasting Results</h4>
-                            <p>Go beyond temporary fixes to achieve permanent life changes.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Overcome Limitations</h4>
-                            <p>Break through the mental barriers holding you back from success.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <div>
-                            <h4>Change Your Life</h4>
-                            <p>Change your mind, and witness how it transforms your reality.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="feature-image">
-                    <img src="chhabi%20sir/2.png" alt="Dr. Chhabi Adhikari">
-                    <div style="margin-top: 20px; text-align: center;">
-                        <a href="calendar.php" class="btn-primary" style="padding: 10px 20px;">Join Upcoming Workshop</a>
-                    </div>
-                </div>
-            </div>
+        <div class="idx-blog__cta reveal">
+            <a href="blog.php" class="btn-outline-gold">
+                <i class="fas fa-newspaper"></i> Read All Articles
+            </a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section 5: About Section (Bio Snippet) -->
-    <section class="about-bio">
-        <div class="container">
-            <div class="bio-layout">
-                <div class="bio-image">
-                    <img src="chhabi sir/Gemini_Generated_Image_ejsw4zejsw4zejsw.png" alt="Dr. Chhabi Adhikari" style="box-shadow: var(--shadow-lg);">
-                </div>
-                <div class="bio-text">
-                    <h2 style="text-align: left;">NLP Training in Nepal by Dr. Chhabi Adhikari</h2>
-                    <div style="width: 50px; height: 3px; background: var(--primary); margin-bottom: 30px;"></div>
-                    <p>Hi, For more than two decades I have been offering a number of <strong>NLP training in Nepal</strong>. My generative learning methodology uniquely helps participants learn and practice NLP in a simple way. This helps people address and resolve their challenges effectively. I am proud to announce that my most-watched NLP videos in Nepal and abroad are helping everyday a number of people who are looking for authentic and relevant training to address their personal and professional issues.</p>
-                    <p>In last two decades, I got an opportunity and big exposure to address and empower over a million people with NLP training. I have designed and delivered various trainings for corporate executives, students, sales people, couples, and upcoming trainers in cities like Kathmandu, Pokhara, Butwal, Chitwan, and beyond.</p>
-                    <p>I offer various NLP trainings like <strong>NLP Practitioner course</strong>, <strong>NLP Master Practitioner course</strong>, <strong>NLP Money Mastery</strong>, and customized workshops for Youth, Parents, and Business people. I invite you to join my upcoming workshop and learn how to master your mindset.</p>
-                    <a href="about.php" class="btn-primary" style="margin-top: 10px;">KNOW MORE ABOUT NLP →</a>
-                </div>
+<!-- ═══════════════════════════════════════════════════════════
+     9. CTA BANNER
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-cta" aria-labelledby="cta-heading">
+    <div class="idx-container">
+        <div class="idx-cta__inner reveal">
+            <span class="idx-cta__tag"><i class="fas fa-fire"></i> &nbsp;Limited Seats Available</span>
+            <h2 class="idx-cta__heading" id="cta-heading">Ready to Transform Your Life?</h2>
+            <p class="idx-cta__sub">Take the first step today. Join thousands of people who have already transformed their mindset, relationships, career, and health through D-School System.</p>
+            <div class="idx-cta__actions">
+                <a href="calendar.php" class="btn-white">
+                    <i class="fas fa-calendar-check"></i> Join a Workshop
+                </a>
+                <a href="contact.php" class="btn-ghost-dark">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section 6: Top Sellable Online Courses -->
-    <section class="shop-section">
-        <div class="container">
-            <h2>Top Sellable Online Courses</h2>
-            <p style="text-align: center; color: var(--text-grey); margin-bottom: 50px;">Program your subconscious mind with our online courses at your own pace.</p>
-            
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="chhabi%20sir/Gemini_Generated_Image_pl1l98pl1l98pl1l.png" alt="NLP Bundle" style="width:100%;">
-                    <div class="product-info">
-                        <h4>Online NLP Bundle</h4>
-                        <p>Learn NLP and Its Application in Life</p>
-                        <a href="#" class="btn-primary" style="padding: 8px 20px;">View Details</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="chhabi%20sir/Gemini_Generated_Image_kwsdyvkwsdyvkwsd.png" alt="Memory Mastery" style="width:100%;">
-                    <div class="product-info">
-                        <h4>Student Memory Mastery</h4>
-                        <p>Increase Concentration & Retention. Gift it to your child.</p>
-                        <a href="#" class="btn-primary" style="padding: 8px 20px;">View Details</a>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <img src="chhabi%20sir/Gemini_Generated_Image_q9bjvcq9bjvcq9bj.png" alt="Transformation" style="width:100%;">
-                    <div class="product-info">
-                        <h4>Total Transformation</h4>
-                        <p>Wealth & Wellness Mastery Audio Program.</p>
-                        <a href="#" class="btn-primary" style="padding: 8px 20px;">View Details</a>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="shop.php" style="font-weight: 700; color: var(--secondary);">Check Out All the Audio Programs → Yes, Take me there</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 7: Pull Quote -->
-    <section class="quote-section">
-        <div class="container">
-            <span class="quote-mark">"</span>
-            <blockquote class="quote-text">Master the art of communication with your SubConscious mind and witness how it can make everything possible for you.</blockquote>
-            <cite class="quote-attribution">— Dr. Chhabi Adhikari</cite>
-        </div>
-    </section>
-
-    <!-- Section 8: Blog Preview ("Thoughts By Ram/Chhabi") -->
-    <section class="blog-section">
-        <div class="container">
-            <h2>Thoughts By Chhabi</h2>
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="chhabi sir/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png" alt="Business Growth">
-                        <span class="category-badge">BUSINESS</span>
-                    </div>
-                    <div class="blog-content">
-                        <p class="blog-meta">Dr. Chhabi Adhikari | Business</p>
-                        <h4 class="blog-title">Seven Secrets that You Need to Grow in Your Business</h4>
-                        <p class="blog-excerpt">Your being a businessperson or entrepreneur opens unlimited opportunities not only for yourself and your people but also for a number of persons who benefit from your product...</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="chhabi sir/ChatGPT Image Feb 10, 2026, 08_03_07 PM.png" alt="Personal Mastery">
-                        <span class="category-badge" style="background: var(--secondary);">PERSONAL MASTERY</span>
-                    </div>
-                    <div class="blog-content">
-                        <p class="blog-meta">Dr. Chhabi Adhikari | Personal Mastery</p>
-                        <h4 class="blog-title">Whatever You Focus Upon Expands</h4>
-                        <p class="blog-excerpt">Whatever you focus upon expands... It is a simple rule of our Subconscious mind. It helps expand the things that it has been focusing upon.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="blog-card">
-                    <div class="blog-image">
-                        <img src="chhabi sir/WhatsApp Image 2026-02-10 at 2.58.03 PM.jpeg" alt="Motivation">
-                        <span class="category-badge">BUSINESS</span>
-                    </div>
-                    <div class="blog-content">
-                        <p class="blog-meta">Dr. Chhabi Adhikari | Business</p>
-                        <h4 class="blog-title">Handling and Motivation People in Business</h4>
-                        <p class="blog-excerpt">When you wish to enhance the productivity of your organization and profits, you need the support of the people that are engaged in your organization...</p>
-                    </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="blog.php" class="btn-primary">Empower your Thoughts: Read Blog</a>
-            </div>
-        </div>
-    </section>
+<script>
+(function () {
+    // Intersection Observer for scroll reveals
+    const els = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    els.forEach(el => obs.observe(el));
+})();
+</script>
 
 <?php include 'includes/footer.php'; ?>

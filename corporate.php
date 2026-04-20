@@ -1,7 +1,7 @@
 <?php include 'includes/header.php'; ?>
 
     <!-- Page Banner -->
-    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('chhabi sir/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
+    <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_2hrh3z2hrh3z2hrh.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3rem; text-transform: uppercase;">Corporate In-House</h1>
             <p style="font-size: 1.25rem; opacity: 0.9;">High-Performance NLP Training for Corporate Excellence in Nepal</p>
