@@ -724,73 +724,236 @@ nav {
     color: #fff;
 }
 
-.course-grid {
+/* Courses Section */
+.courses-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+}
+
+.courses-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.courses-section .section-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.courses-section .section-header h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.courses-section .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-grey);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.courses-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-@media (min-width: 992px) {
-    .course-card:nth-child(4) {
-        grid-column: 1 / 2;
-        margin-left: 50%;
-    }
-
-    .course-card:nth-child(5) {
-        grid-column: 2 / 3;
-        margin-left: 50%;
-    }
-}
-
-/* Better way: Flexbox for rows or just centering the whole grid container if items are fewer */
-/* Or use justify-content: center on a flex container */
-
-.course-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
     margin-top: 50px;
 }
 
 .course-card {
-    background: #fff;
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    flex: 0 0 calc(33.333% - 20px);
-    min-width: 300px;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .course-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(26, 47, 90, 0.1);
 }
 
-.course-card i {
-    font-size: 2.5rem;
+.course-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.badge-premium {
+    background: linear-gradient(135deg, #ffd700, #ffb347);
+    color: #333;
+}
+
+.badge-residential {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.badge-online {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+}
+
+.badge-family {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.badge-personal {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.badge-audio {
+    background: linear-gradient(135deg, #a8edea, #fed6e3);
+    color: #333;
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.05);
+}
+
+.course-content {
+    padding: 24px;
+}
+
+.course-category {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(26, 47, 90, 0.1);
     color: var(--primary);
-    margin-bottom: 20px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
-.course-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-}
-
-.course-card p {
+.course-category i {
     font-size: 0.9rem;
+}
+
+.course-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.course-description {
     color: var(--text-grey);
+    font-size: 0.95rem;
+    line-height: 1.6;
     margin-bottom: 20px;
 }
 
-.course-card a {
-    color: var(--primary);
-    font-weight: 700;
+.course-meta {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-size: 0.85rem;
+    color: var(--text-grey);
+}
+
+.meta-item i {
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.course-footer {
+    padding: 0 24px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-pricing .price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(26, 47, 90, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* NLP Features Section */
@@ -1327,12 +1490,9 @@ footer {
         font-size: 2.5rem;
     }
 
-    .course-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .course-card {
-        flex: 0 0 calc(50% - 20px);
+    .courses-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
     }
 
     .overview-grid,
@@ -1382,12 +1542,41 @@ footer {
         font-size: 1.1rem;
     }
 
-    .course-grid {
-        grid-template-columns: 1fr;
+    .courses-section {
+        padding: 60px 0;
     }
 
-    .course-card {
-        flex: 0 0 100%;
+    .courses-section .section-header h1 {
+        font-size: 2rem;
+    }
+
+    .courses-section .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .course-content {
+        padding: 20px;
+    }
+
+    .course-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .course-footer {
+        padding: 0 20px 20px;
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .course-pricing {
+        text-align: center;
     }
 
     .footer-grid {

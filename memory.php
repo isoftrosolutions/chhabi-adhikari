@@ -14,7 +14,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;" class="overview-grid">
                 <div>
                     <h2 style="text-align: left; margin-bottom: 30px;">The Secret to Effortless Learning</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Does your child struggle with concentration? Do they spend hours studying only to forget everything during exams? <strong>Dr. Chhabi Adhikari</strong>'s Memory Mastery uses NLP and brain-training techniques to turn learning into a fun, automatic process.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">Does your child struggle with concentration? Do they spend hours studying only to forget everything during exams? <strong>Chhabi Adhikari</strong>'s Memory Mastery uses NLP and brain-training techniques to turn learning into a fun, automatic process.</p>
                     
                     <div style="margin-top: 40px;">
                         <div style="display: flex; gap: 15px; margin-bottom: 20px;">

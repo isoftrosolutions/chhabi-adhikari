@@ -1,4 +1,16 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+$pdo = getDB();
+$stmt = $pdo->query("SELECT category, COUNT(*) as count FROM blog_posts WHERE is_published = 1 GROUP BY category ORDER BY count DESC LIMIT 10");
+$categories = $stmt->fetchAll();
+
+$stmt = $pdo->query("SELECT * FROM blog_posts WHERE is_published = 1 ORDER BY published_at DESC LIMIT 4");
+$recent_posts = $stmt->fetchAll();
+
+$stmt = $pdo->query("SELECT * FROM blog_posts WHERE is_published = 1 ORDER BY published_at DESC");
+$posts = $stmt->fetchAll();
+$featured_post = !empty($posts) ? array_shift($posts) : null;
+?>
 
 <style>
     .blog-hero {
@@ -416,7 +428,7 @@
             <span>News &amp; Blog</span>
         </div>
         <h1>Insights &amp; Inspiration</h1>
-        <p>Articles on NLP, personal growth, leadership, and business mastery by Dr. Chhabi Adhikari.</p>
+        <p>Articles on NLP, personal growth, leadership, and business mastery by Chhabi Adhikari.</p>
     </div>
 </section>
 
@@ -425,12 +437,9 @@
     <div class="container">
         <div class="filter-tabs">
             <button class="filter-tab active" data-filter="all">All Posts</button>
-            <button class="filter-tab" data-filter="nlp">NLP</button>
-            <button class="filter-tab" data-filter="business">Business</button>
-            <button class="filter-tab" data-filter="selfhelp">Self Help</button>
-            <button class="filter-tab" data-filter="leadership">Leadership</button>
-            <button class="filter-tab" data-filter="money">Money Mastery</button>
-            <button class="filter-tab" data-filter="mindset">Mindset</button>
+            <?php foreach($categories as $c): ?>
+            <button class="filter-tab" data-filter="<?= slugify($c['category']) ?>"><?= h($c['category']) ?></button>
+            <?php endforeach; ?>
         </div>
     </div>
 </div>
@@ -444,117 +453,43 @@
             <div class="blog-posts">
 
                 <!-- Featured Post -->
+                <?php if ($featured_post): ?>
                 <article class="featured-post">
-                    <div class="featured-image img-grad-2">
-                        <div class="post-bg-div"><i class="fas fa-brain"></i></div>
+                    <div class="featured-image" style="background: <?= h($featured_post['image_gradient']) ?>;">
+                        <div class="post-bg-div"><i class="<?= h($featured_post['image_icon']) ?>"></i></div>
                         <span class="featured-badge"><i class="fas fa-star"></i> Featured</span>
                     </div>
                     <div class="featured-content">
-                        <span class="post-category-tag"><i class="fas fa-tag"></i> NLP</span>
-                        <h2>The Power of NLP: Rewire Your Mind for Extraordinary Results</h2>
+                        <span class="post-category-tag"><i class="fas fa-tag"></i> <?= h($featured_post['category']) ?></span>
+                        <h2><?= h($featured_post['title']) ?></h2>
                         <div class="post-meta-row">
-                            <span><i class="fas fa-user"></i> Dr. Chhabi Adhikari</span>
-                            <span><i class="fas fa-calendar"></i> April 15, 2026</span>
-                            <span><i class="fas fa-clock"></i> 8 min read</span>
+                            <span><i class="fas fa-user"></i> <?= h($featured_post['author']) ?></span>
+                            <span><i class="fas fa-calendar"></i> <?= date('F j, Y', strtotime($featured_post['published_at'])) ?></span>
                         </div>
-                        <p>Neuro-Linguistic Programming is not just a technique — it is a complete system for understanding how your brain creates your reality. Discover how NLP can help you break old patterns and install empowering beliefs.</p>
-                        <a href="#" class="read-more-btn">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        <p><?= h($featured_post['excerpt']) ?></p>
+                        <a href="blog-detail.php?slug=<?= urlencode($featured_post['slug']) ?>" class="read-more-btn">Read Full Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
+                <?php endif; ?>
 
                 <!-- Blog Cards Grid -->
                 <div class="blog-cards-grid">
-
-                    <article class="blog-post-card" data-category="business">
-                        <div class="card-image img-grad-1">
-                            <div class="post-bg-div"><i class="fas fa-chart-line"></i></div>
-                            <span class="card-cat-badge cat-business">Business</span>
+                    <?php foreach ($posts as $post): ?>
+                    <article class="blog-post-card" data-category="<?= slugify($post['category']) ?>">
+                        <div class="card-image" style="background: <?= h($post['image_gradient']) ?>">
+                            <div class="post-bg-div"><i class="<?= h($post['image_icon']) ?>"></i></div>
+                            <span class="card-cat-badge"><?= h($post['category']) ?></span>
                         </div>
                         <div class="card-body">
-                            <h3>7 Secrets to Grow Your Business Beyond Limits</h3>
-                            <p>Your being a businessperson opens unlimited opportunities. Discover the proven secrets to scaling up your business using the power of your subconscious mind.</p>
+                            <h3><?= h($post['title']) ?></h3>
+                            <p><?= h($post['excerpt']) ?></p>
                             <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Apr 10, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
+                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> <?= date('M j, Y', strtotime($post['published_at'])) ?></span>
+                                <a href="blog-detail.php?slug=<?= urlencode($post['slug']) ?>">Read More <i class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
-
-                    <article class="blog-post-card" data-category="selfhelp">
-                        <div class="card-image img-grad-3">
-                            <div class="post-bg-div"><i class="fas fa-eye"></i></div>
-                            <span class="card-cat-badge cat-selfhelp">Self Help</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Whatever You Focus Upon Expands</h3>
-                            <p>It is a simple rule of our subconscious mind. Learn how to direct your focus intentionally and watch every area of your life transform with positive momentum.</p>
-                            <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Apr 5, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post-card" data-category="leadership">
-                        <div class="card-image img-grad-4">
-                            <div class="post-bg-div"><i class="fas fa-users"></i></div>
-                            <span class="card-cat-badge cat-leadership">Leadership</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Handling People in Business: The Art of Influence</h3>
-                            <p>Enhance productivity by mastering the art of motivation and team management. Learn NLP-based strategies to inspire your team and lead with confidence.</p>
-                            <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Mar 28, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post-card" data-category="money">
-                        <div class="card-image img-grad-5">
-                            <div class="post-bg-div"><i class="fas fa-coins"></i></div>
-                            <span class="card-cat-badge cat-money">Money Mastery</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Reprogram Your Wealth: The Money Mindset Shift</h3>
-                            <p>Most financial struggles are not about money — they are about your beliefs about money. Learn how to identify and dissolve your limiting beliefs around wealth and abundance.</p>
-                            <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Mar 20, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post-card" data-category="mindset">
-                        <div class="card-image img-grad-6">
-                            <div class="post-bg-div"><i class="fas fa-lightbulb"></i></div>
-                            <span class="card-cat-badge cat-mindset">Mindset</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>The 5-Minute Morning Ritual That Changes Everything</h3>
-                            <p>How you start your morning sets the tone for your entire day. Discover a simple yet powerful 5-minute ritual that top performers use to prime their mindset for success.</p>
-                            <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Mar 12, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-post-card" data-category="nlp">
-                        <div class="card-image img-grad-1">
-                            <div class="post-bg-div"><i class="fas fa-comments"></i></div>
-                            <span class="card-cat-badge cat-nlp">NLP</span>
-                        </div>
-                        <div class="card-body">
-                            <h3>Anchoring: Use NLP to Instantly Access Your Best State</h3>
-                            <p>Anchoring is one of NLP's most powerful tools. Learn how to create a personal anchor that instantly brings you to a state of peak confidence, calm, or focus whenever you need it.</p>
-                            <div class="card-footer-row">
-                                <span><i class="fas fa-calendar" style="color:var(--primary);margin-right:4px;"></i> Mar 5, 2026</span>
-                                <a href="#">Read More <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </article>
-
+                    <?php endforeach; ?>
                 </div>
 
                 <!-- Pagination -->
@@ -573,54 +508,26 @@
                 <!-- Recent Posts -->
                 <div class="sidebar-widget">
                     <h4>Recent Posts</h4>
+                    <?php foreach ($recent_posts as $rp): ?>
                     <div class="recent-post-item">
-                        <div class="recent-post-thumb img-grad-2" style="border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:1.2rem;">
-                            <i class="fas fa-brain"></i>
+                        <div class="recent-post-thumb" style="background: <?= h($rp['image_gradient']) ?>; border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:1.2rem;">
+                            <i class="<?= h($rp['image_icon']) ?>"></i>
                         </div>
                         <div class="recent-post-info">
-                            <h5>The Power of NLP: Rewire Your Mind</h5>
-                            <span>April 15, 2026</span>
+                            <h5><a href="blog-detail.php?slug=<?= urlencode($rp['slug']) ?>" style="color: inherit; text-decoration: none;"><?= h($rp['title']) ?></a></h5>
+                            <span><?= date('F j, Y', strtotime($rp['published_at'])) ?></span>
                         </div>
                     </div>
-                    <div class="recent-post-item">
-                        <div class="recent-post-thumb img-grad-1" style="border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:1.2rem;">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="recent-post-info">
-                            <h5>7 Secrets to Grow Your Business</h5>
-                            <span>April 10, 2026</span>
-                        </div>
-                    </div>
-                    <div class="recent-post-item">
-                        <div class="recent-post-thumb img-grad-3" style="border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:1.2rem;">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <div class="recent-post-info">
-                            <h5>Whatever You Focus Upon Expands</h5>
-                            <span>April 5, 2026</span>
-                        </div>
-                    </div>
-                    <div class="recent-post-item">
-                        <div class="recent-post-thumb img-grad-5" style="border-radius:10px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);font-size:1.2rem;">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <div class="recent-post-info">
-                            <h5>Reprogram Your Wealth Mindset</h5>
-                            <span>March 20, 2026</span>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
                 <!-- Categories -->
                 <div class="sidebar-widget">
                     <h4>Categories</h4>
                     <ul class="category-list">
-                        <li><a href="#">NLP</a> <span class="cat-count">12</span></li>
-                        <li><a href="#">Business</a> <span class="cat-count">9</span></li>
-                        <li><a href="#">Self Help</a> <span class="cat-count">15</span></li>
-                        <li><a href="#">Leadership</a> <span class="cat-count">7</span></li>
-                        <li><a href="#">Money Mastery</a> <span class="cat-count">5</span></li>
-                        <li><a href="#">Mindset</a> <span class="cat-count">11</span></li>
+                        <?php foreach($categories as $c): ?>
+                        <li><a href="#" class="sidebar-cat-link" data-cat="<?= slugify($c['category']) ?>"><?= h($c['category']) ?></a> <span class="cat-count"><?= $c['count'] ?></span></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
 
@@ -644,7 +551,7 @@
                 <!-- Subscribe -->
                 <div class="sidebar-widget subscribe-widget">
                     <h4>Stay Updated</h4>
-                    <p>Get Dr. Chhabi's latest insights delivered straight to your inbox.</p>
+                    <p>Get Chhabi's latest insights delivered straight to your inbox.</p>
                     <form class="subscribe-form" onsubmit="return false;">
                         <input type="email" placeholder="Your email address">
                         <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>

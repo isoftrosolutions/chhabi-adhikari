@@ -14,7 +14,7 @@
                 <!-- Social & Contact Info -->
                 <div class="connect-info">
                     <h2 style="text-align: left; margin-bottom: 20px;">Get in Touch Directly</h2>
-                    <p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-grey);">Stay connected with Dr. Chhabi Adhikari through various platforms and get daily inspiration, updates on upcoming workshops, and exclusive NLP tips.</p>
+                    <p style="margin-bottom: 30px; font-size: 1.1rem; color: var(--text-grey);">Stay connected with Chhabi Adhikari through various platforms and get daily inspiration, updates on upcoming workshops, and exclusive NLP tips.</p>
                     
                     <div class="contact-methods" style="margin-bottom: 40px;">
                         <div class="method-item" style="display: flex; gap: 20px; align-items: center; margin-bottom: 25px;">
@@ -57,7 +57,7 @@
                 <!-- Contact Form Card -->
                 <div class="connect-form-card" style="background: #fff; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-lg);">
                     <h3 style="margin-bottom: 10px;">Send a Message</h3>
-                    <p style="color: var(--text-grey); margin-bottom: 30px;">Have a specific question? Fill out the form below and Dr. Chhabi's team will get back to you within 24 hours.</p>
+                    <p style="color: var(--text-grey); margin-bottom: 30px;">Have a specific question? Fill out the form below and Chhabi's team will get back to you within 24 hours.</p>
                     
                     <form action="#" method="POST">
                         <div style="margin-bottom: 20px;">

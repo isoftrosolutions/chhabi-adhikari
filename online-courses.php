@@ -4,7 +4,7 @@
     <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3rem; text-transform: uppercase;">Digital Resources</h1>
-            <p style="font-size: 1.25rem; opacity: 0.9;">E-Learning, Audio Programs & Books by Dr. Chhabi Adhikari</p>
+            <p style="font-size: 1.25rem; opacity: 0.9;">E-Learning, Audio Programs & Books by Chhabi Adhikari</p>
         </div>
     </section>
 

@@ -12,7 +12,7 @@
         <div class="container">
             <div style="max-width: 800px; margin: 0 auto; text-align: center;">
                 <h2 style="margin-bottom: 30px;">Break Your Financial Glass Ceiling</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-grey); margin-bottom: 50px;">Money is 80% psychology and 20% mechanics. Most people are held back by 'Karmic Money Conditioning'—beliefs inherited from childhood. In this intensive workshop, <strong>Dr. Chhabi Adhikari</strong> helps you identify and delete these "poverty patches" from your mind.</p>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-grey); margin-bottom: 50px;">Money is 80% psychology and 20% mechanics. Most people are held back by 'Karmic Money Conditioning'—beliefs inherited from childhood. In this intensive workshop, <strong>Chhabi Adhikari</strong> helps you identify and delete these "poverty patches" from your mind.</p>
             </div>
 
             <div class="money-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px;">

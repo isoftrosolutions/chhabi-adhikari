@@ -4,7 +4,7 @@
     <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
         <div class="container">
             <h1 style="color: #fff; font-size: 3rem; text-transform: uppercase;">Upcoming Workshops</h1>
-            <p style="font-size: 1.25rem; opacity: 0.9;">Plan Your Transformation Journey with Dr. Chhabi Adhikari</p>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Plan Your Transformation Journey with Chhabi Adhikari</p>
         </div>
     </section>
 
@@ -52,7 +52,7 @@
             
             <div style="margin-top: 50px; background: var(--bg-section); padding: 40px; border-radius: 20px; text-align: center;">
                 <h3>Need a Custom Training for Your Corporate Team?</h3>
-                <p style="margin: 15px 0 30px; color: var(--text-grey);">Dr. Chhabi Adhikari conducts customized NLP workshops for businesses, schools, and organizations across Nepal.</p>
+                <p style="margin: 15px 0 30px; color: var(--text-grey);">Chhabi Adhikari conducts customized NLP workshops for businesses, schools, and organizations across Nepal.</p>
                 <a href="corporate.php" style="color: var(--secondary); font-weight: 700;">Enquire About In-House Training →</a>
             </div>
         </div>

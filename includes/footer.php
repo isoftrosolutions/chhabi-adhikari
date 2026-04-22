@@ -9,7 +9,7 @@ $liUrl    = getSetting('linkedin_url',  '#');
 $phone    = getSetting('contact_phone', '');
 $email    = getSetting('contact_email', '');
 $address  = getSetting('contact_address', 'Kathmandu, Nepal');
-$footDesc = getSetting('footer_description', "Nepal's Leading Authority in Personal Transformation. Founded by Dr. Chhabi Adhikari.");
+$footDesc = getSetting('footer_description', "Nepal's Leading Authority in Personal Transformation. Founded by Chhabi Adhikari.");
 ?>
     <footer>
         <div class="container">
@@ -41,7 +41,7 @@ $footDesc = getSetting('footer_description', "Nepal's Leading Authority in Perso
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul style="padding:0;">
-                        <li><a href="<?= BASE_URL ?>/about">About Dr. Chhabi</a></li>
+                        <li><a href="<?= BASE_URL ?>/about">About Chhabi</a></li>
                         <li><a href="<?= BASE_URL ?>/calendar">Upcoming Workshops</a></li>
                         <li><a href="<?= BASE_URL ?>/success-stories">Success Stories</a></li>
                         <li><a href="<?= BASE_URL ?>/videos">Videos</a></li>

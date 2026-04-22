@@ -105,7 +105,7 @@ if ($action === 'list'):
       </div>
       <div class="form-group full">
         <label>Testimonial Content *</label>
-        <textarea name="content" rows="5" required placeholder="What did they say about Dr. Chhabi or D-School?"><?=h($t['content']??'')?></textarea>
+        <textarea name="content" rows="5" required placeholder="What did they say about Chhabi or D-School?"><?=h($t['content']??'')?></textarea>
       </div>
       <div class="form-group">
         <label>Sort Order</label>

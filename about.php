@@ -477,7 +477,10 @@
             </div>
             <div class="about-grid__img reveal reveal-delay-1">
                 <div class="about-grid__frame">
-                    <img src="chhabi%20sir/Introduction_%20Dr.%20Chhabi%20Adhikari.mp4" poster="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png" alt="D School Mission" style="width:100%; height:450px; object-fit:cover; border-radius:18px;">
+                    <video controls poster="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png" style="width:100%; height:450px; object-fit:cover; border-radius:18px;">
+                        <source src="assets/Introduction_%20Dr.%20Chhabi%20Adhikari.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </div>
         </div>
@@ -519,13 +522,13 @@
         <div class="about-grid">
             <div class="about-grid__img reveal">
                 <div class="about-grid__frame">
-                    <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png" alt="Dr. Chhabi Adhikari">
+                    <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png" alt="Chhabi Adhikari">
                 </div>
             </div>
             <div class="about-grid__content reveal reveal-delay-1">
                 <h3>Meet the Founder</h3>
-                <h2>Dr. Chhabi Adhikari — Nepal's NLP Pioneer</h2>
-                <p>Dr. Chhabi Adhikari is a pioneering figure in Neuro-Linguistic Programming and personal development in Nepal. With over two decades of experience, he has transformed countless lives through his workshops, seminars, and coaching programs.</p>
+                <h2>Chhabi Adhikari — Nepal's NLP Pioneer</h2>
+                <p>Chhabi Adhikari is a pioneering figure in Neuro-Linguistic Programming and personal development in Nepal. With over two decades of experience, he has transformed countless lives through his workshops, seminars, and coaching programs.</p>
                 <p>As the founder of D School System, he envisioned a world where every individual is empowered to reach their full potential. His methodologies are rooted in practical application, deep psychological insights, and the belief that lasting change comes from within.</p>
                 <p>Certifications and recognition from international bodies — combined with a deep understanding of Nepali culture and values — make his approach uniquely effective for Nepal's growing community of change-makers.</p>
             </div>

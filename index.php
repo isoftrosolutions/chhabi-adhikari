@@ -1,4 +1,28 @@
-<?php include 'includes/header.php'; ?>
+<?php
+include 'includes/header.php';
+$hero = getSetting('hero_title_line1'); // Just to ensure config is loaded. Actually config is loaded in header.php.
+$pdo = getDB();
+
+// Fetch Hero Slides
+$stmt = $pdo->query("SELECT * FROM hero_slides WHERE is_active=1 ORDER BY sort_order ASC");
+$slides = $stmt->fetchAll();
+
+// Fetch Services
+$stmt = $pdo->query("SELECT * FROM services WHERE is_active=1 ORDER BY sort_order ASC LIMIT 6");
+$services = $stmt->fetchAll();
+
+// Fetch Testimonials
+$stmt = $pdo->query("SELECT * FROM testimonials WHERE is_active=1 ORDER BY sort_order ASC LIMIT 3");
+$testimonials = $stmt->fetchAll();
+
+// Fetch Videos
+$stmt = $pdo->query("SELECT * FROM videos WHERE is_active=1 ORDER BY sort_order ASC LIMIT 3");
+$videos = $stmt->fetchAll();
+
+// Fetch Blog Posts
+$stmt = $pdo->query("SELECT * FROM blog_posts WHERE is_published=1 ORDER BY published_at DESC LIMIT 3");
+$blog_posts = $stmt->fetchAll();
+?>
 
 <style>
 /* ─── Reset & Base ─────────────────────────────────────── */
@@ -895,7 +919,8 @@
 <!-- ═══════════════════════════════════════════════════════════
      1. HERO
 ═══════════════════════════════════════════════════════════ -->
-<section class="idx-hero">
+<?php $slide = $slides[0] ?? null; ?>
+<section class="idx-hero" <?php if($slide && $slide['gradient']) echo "style=\"background: {$slide['gradient']};\""; ?>>
     <div class="idx-hero__bg-pattern"></div>
 
     <div class="idx-hero__inner">
@@ -903,21 +928,25 @@
         <div class="idx-hero__copy">
             <div class="idx-hero__eyebrow">
                 <i class="fas fa-brain"></i>
-                Nepal's Leading NLP Institute
+                <?= h(getSetting('hero_eyebrow')) ?>
             </div>
             <h1 class="idx-hero__title">
-                Transform Your <em>Mind.</em><br>
-                Transform Your <em>Life.</em>
+                <?php if ($slide): ?>
+                    <?= nl2br(h($slide['title'])) ?>
+                <?php else: ?>
+                    <?= h(getSetting('hero_title_line1')) ?><br>
+                    <?= h(getSetting('hero_title_line2')) ?>
+                <?php endif; ?>
             </h1>
             <p class="idx-hero__sub">
-                Discover the power of Neuro-Linguistic Programming with Dr. Chhabi Adhikari — Nepal's most trusted NLP trainer with over two decades of transformational impact.
+                <?= h($slide['subtitle'] ?? getSetting('hero_subtitle')) ?>
             </p>
             <div class="idx-hero__actions">
-                <a href="courses.php" class="btn-gold">
-                    <i class="fas fa-graduation-cap"></i> Explore Programs
+                <a href="<?= htmlspecialchars($slide['btn1_url'] ?? 'courses.php') ?>" class="btn-gold">
+                    <i class="fas fa-graduation-cap"></i> <?= h($slide['btn1_text'] ?? 'Explore Programs') ?>
                 </a>
-                <a href="videos.php" class="btn-ghost-white">
-                    <i class="fas fa-play-circle"></i> Watch Videos
+                <a href="<?= htmlspecialchars($slide['btn2_url'] ?? 'videos.php') ?>" class="btn-ghost-white">
+                    <i class="fas fa-play-circle"></i> <?= h($slide['btn2_text'] ?? 'Watch Videos') ?>
                 </a>
             </div>
         </div>
@@ -927,12 +956,12 @@
             <div class="idx-hero__deco-ring"></div>
             <div class="idx-hero__deco-dot"></div>
             <div class="idx-hero__image-frame">
-                <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png"
-                     alt="Dr. Chhabi Adhikari — NLP Master Trainer">
+                <img src="<?= BASE_URL ?>/<?= h($slide['image_path'] ?? getSetting('hero_image')) ?>"
+                     alt="Hero Image">
                 <div class="idx-hero__image-badge">
                     <i class="fas fa-award"></i>
                     <div>
-                        <strong>Dr. Chhabi</strong>
+                        <strong>Chhabi</strong>
                         <span>NLP Master Trainer</span>
                     </div>
                 </div>
@@ -944,19 +973,19 @@
     <div class="idx-hero__stats">
         <div class="idx-hero__stats-inner">
             <div class="stat-pill">
-                <span class="stat-pill__num">2+</span>
+                <span class="stat-pill__num"><?= h(getSetting('stat_decades', '2+')) ?></span>
                 <span class="stat-pill__label">Decades of<br>Experience</span>
             </div>
             <div class="stat-pill">
-                <span class="stat-pill__num">1M+</span>
+                <span class="stat-pill__num"><?= h(getSetting('stat_lives', '1M+')) ?></span>
                 <span class="stat-pill__label">Lives<br>Touched</span>
             </div>
             <div class="stat-pill">
-                <span class="stat-pill__num">20+</span>
+                <span class="stat-pill__num"><?= h(getSetting('stat_cities', '20+')) ?></span>
                 <span class="stat-pill__label">Cities<br>Reached</span>
             </div>
             <div class="stat-pill">
-                <span class="stat-pill__num">50+</span>
+                <span class="stat-pill__num"><?= h(getSetting('stat_programs', '50+')) ?></span>
                 <span class="stat-pill__label">Programs<br>Delivered</span>
             </div>
         </div>
@@ -990,32 +1019,32 @@
             <div class="idx-about__img-wrap reveal">
                 <div class="idx-about__deco"></div>
                 <div class="idx-about__img-frame">
-                    <img src="assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png"
-                         alt="Dr. Chhabi Adhikari — Founder of D-School System" loading="lazy">
+                    <img src="<?= BASE_URL ?>/<?= h(getSetting('about_image', 'assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png')) ?>"
+                         alt="Chhabi Adhikari — Founder of D-School System" loading="lazy">
                 </div>
                 <div class="idx-about__years-badge">
-                    <strong>20+</strong>
+                    <strong><?= h(rtrim(getSetting('stat_decades', '20+'), '+')) ?>+</strong>
                     <span>Years<br>Expert</span>
                 </div>
             </div>
 
             <!-- Content -->
             <div class="reveal reveal-delay-1">
-                <p class="idx-about__eyebrow">Meet the Founder</p>
+                <p class="idx-about__eyebrow"><?= h(getSetting('about_eyebrow', 'Meet the Founder')) ?></p>
                 <h2 class="idx-about__title" id="about-heading">
-                    Dr. Chhabi Adhikari —<br>Nepal's Foremost NLP Authority
+                    <?= nl2br(h(getSetting('about_title', "Chhabi Adhikari —\nNepal's Foremost NLP Authority"))) ?>
                 </h2>
                 <p class="idx-about__text">
-                    For more than two decades, Dr. Chhabi Adhikari has been transforming lives through Neuro-Linguistic Programming. His generative learning methodology uniquely helps participants learn, experience, and apply NLP in a simple yet profoundly effective way.
+                    <?= nl2br(h(getSetting('about_text1'))) ?>
                 </p>
                 <p class="idx-about__text">
-                    With workshops spanning Kathmandu, Pokhara, Butwal, Chitwan, and beyond — and NLP videos watched by millions — Dr. Chhabi is Nepal's most trusted voice in personal transformation, leadership, and the science of the subconscious mind.
+                    <?= nl2br(h(getSetting('about_text2'))) ?>
                 </p>
 
                 <div class="idx-about__credentials">
                     <span class="cred-badge"><i class="fas fa-certificate"></i> Certified NLP Trainer</span>
                     <span class="cred-badge"><i class="fas fa-globe-asia"></i> Nepal's #1 NLP Institute</span>
-                    <span class="cred-badge"><i class="fas fa-users"></i> 1M+ Lives Reached</span>
+                    <span class="cred-badge"><i class="fas fa-users"></i> <?= h(getSetting('stat_lives', '1M+')) ?> Lives Reached</span>
                     <span class="cred-badge"><i class="fas fa-building"></i> Corporate & Personal</span>
                 </div>
 
@@ -1038,51 +1067,18 @@
 <section class="idx-section idx-services" aria-labelledby="services-heading">
     <div class="idx-container">
         <span class="gold-bar reveal"></span>
-        <h2 class="idx-heading reveal reveal-delay-1" id="services-heading">Our Transformational Programs</h2>
-        <p class="idx-subheading reveal reveal-delay-2">Expertly designed programs to empower every area of your life</p>
+        <h2 class="idx-heading reveal reveal-delay-1" id="services-heading"><?= h(getSetting('services_title', 'Our Transformational Programs')) ?></h2>
+        <p class="idx-subheading reveal reveal-delay-2"><?= h(getSetting('services_subtitle', 'Expertly designed programs to empower every area of your life')) ?></p>
 
         <div class="idx-services__grid">
-            <article class="svc-card reveal">
-                <div class="svc-card__icon"><i class="fas fa-brain"></i></div>
-                <h3 class="svc-card__title">NLP Master Practitioner</h3>
-                <p class="svc-card__desc">The complete 5-day transformational NLP workshop. Master your subconscious mind and unlock extraordinary potential.</p>
-                <a href="courses.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
+            <?php foreach ($services as $k => $svc): ?>
+            <article class="svc-card reveal <?= $k > 0 ? "reveal-delay-" . ($k % 4) : "" ?>">
+                <div class="svc-card__icon"><i class="<?= h($svc['icon'] ?? 'fas fa-star') ?>"></i></div>
+                <h3 class="svc-card__title"><?= h($svc['title']) ?></h3>
+                <p class="svc-card__desc"><?= h($svc['description']) ?></p>
+                <a href="<?= htmlspecialchars($svc['link_url'] ?? 'courses.php') ?>" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
             </article>
-
-            <article class="svc-card reveal reveal-delay-1">
-                <div class="svc-card__icon"><i class="fas fa-user-tie"></i></div>
-                <h3 class="svc-card__title">Train the Competent Life Coach</h3>
-                <p class="svc-card__desc">A 14-day residential workshop to become a certified professional life coach. Transform others as you transform yourself.</p>
-                <a href="ttclc.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </article>
-
-            <article class="svc-card reveal reveal-delay-2">
-                <div class="svc-card__icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3 class="svc-card__title">NLP Practitioner</h3>
-                <p class="svc-card__desc">Your first step into the science of NLP. Learn to reprogram limiting beliefs and create lasting behavioural change.</p>
-                <a href="nlp-practitioner.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </article>
-
-            <article class="svc-card reveal reveal-delay-3">
-                <div class="svc-card__icon"><i class="fas fa-coins"></i></div>
-                <h3 class="svc-card__title">Money Mastery</h3>
-                <p class="svc-card__desc">Dissolve your money blocks and reprogram a wealth mindset. Discover the psychology behind financial abundance.</p>
-                <a href="money.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </article>
-
-            <article class="svc-card reveal reveal-delay-4">
-                <div class="svc-card__icon"><i class="fas fa-book-open"></i></div>
-                <h3 class="svc-card__title">Student Memory Mastery</h3>
-                <p class="svc-card__desc">Enhance concentration, memory, and exam performance. The perfect gift to give your child a lasting academic edge.</p>
-                <a href="memory.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </article>
-
-            <article class="svc-card reveal reveal-delay-4">
-                <div class="svc-card__icon"><i class="fas fa-building"></i></div>
-                <h3 class="svc-card__title">Corporate Training</h3>
-                <p class="svc-card__desc">Customised in-house programs for organisations seeking leadership excellence, team cohesion, and peak performance culture.</p>
-                <a href="personal-counseling.php" class="svc-card__link">Learn More <i class="fas fa-arrow-right"></i></a>
-            </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>
@@ -1093,25 +1089,25 @@
 <section class="idx-section idx-why" aria-labelledby="why-heading">
     <div class="idx-container">
         <span class="gold-bar reveal"></span>
-        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="why-heading">Why D-School System?</h2>
-        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2">The standard of excellence that sets us apart</p>
+        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="why-heading"><?= h(getSetting('why_title', 'Why D-School System?')) ?></h2>
+        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2"><?= h(getSetting('why_subtitle', 'The standard of excellence that sets us apart')) ?></p>
 
         <div class="idx-why__grid">
             <div class="why-item reveal">
                 <div class="why-item__icon-wrap"><i class="fas fa-user-graduate"></i></div>
-                <div class="why-item__num">20+</div>
+                <div class="why-item__num"><?= h(getSetting('stat_decades', '20+')) ?></div>
                 <div class="why-item__title">Expert Trainer</div>
                 <p class="why-item__desc">Over two decades of hands-on NLP training experience from Nepal's most certified practitioner.</p>
             </div>
             <div class="why-item reveal reveal-delay-1">
                 <div class="why-item__icon-wrap"><i class="fas fa-chart-line"></i></div>
-                <div class="why-item__num">1M+</div>
+                <div class="why-item__num"><?= h(getSetting('stat_lives', '1M+')) ?></div>
                 <div class="why-item__title">Lives Impacted</div>
                 <p class="why-item__desc">From personal counselling to mass workshops — a proven track record of real, measurable transformation.</p>
             </div>
             <div class="why-item reveal reveal-delay-2">
                 <div class="why-item__icon-wrap"><i class="fas fa-certificate"></i></div>
-                <div class="why-item__num">50+</div>
+                <div class="why-item__num"><?= h(getSetting('stat_programs', '50+')) ?></div>
                 <div class="why-item__title">Certified Programs</div>
                 <p class="why-item__desc">Internationally aligned curricula, taught in a simple, practical, and deeply effective way.</p>
             </div>
@@ -1131,48 +1127,24 @@
 <section class="idx-section idx-testimonials" aria-labelledby="testi-heading">
     <div class="idx-container">
         <span class="gold-bar reveal"></span>
-        <h2 class="idx-heading reveal reveal-delay-1" id="testi-heading">Success Stories</h2>
+        <h2 class="idx-heading reveal reveal-delay-1" id="testi-heading"><?= h(getSetting('testimonials_title', 'Success Stories')) ?></h2>
         <p class="idx-subheading reveal reveal-delay-2">Real transformations from real people</p>
 
         <div class="idx-testimonials__grid">
-            <div class="testi-card reveal">
+            <?php foreach ($testimonials as $k => $testi): ?>
+            <div class="testi-card reveal <?= $k > 0 ? "reveal-delay-" . ($k % 4) : "" ?>">
                 <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p class="testi-card__text">"Dr. Chhabi's NLP workshop completely changed the way I see myself and my business. Within three months of applying what I learned, my income doubled. The subconscious reprogramming is real and it works."</p>
-                <div class="testi-card__stars">★★★★★</div>
+                <p class="testi-card__text">"<?= h($testi['content']) ?>"</p>
+                <div class="testi-card__stars"><?= str_repeat('★', $testi['rating'] ?? 5) ?></div>
                 <div class="testi-card__author">
-                    <div class="testi-card__avatar">R</div>
+                    <div class="testi-card__avatar"><?= h($testi['avatar_initial']) ?></div>
                     <div>
-                        <div class="testi-card__name">Rajesh Shrestha</div>
-                        <div class="testi-card__role">Entrepreneur, Kathmandu</div>
+                        <div class="testi-card__name"><?= h($testi['name']) ?></div>
+                        <div class="testi-card__role"><?= h($testi['role']) ?><?= $testi['location'] ? ', ' . h($testi['location']) : '' ?></div>
                     </div>
                 </div>
             </div>
-
-            <div class="testi-card reveal reveal-delay-1">
-                <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p class="testi-card__text">"I attended the NLP Master Practitioner workshop feeling stuck in life. I left with a completely new mindset. Dr. Chhabi has a gift for making complex psychology feel natural and immediately applicable."</p>
-                <div class="testi-card__stars">★★★★★</div>
-                <div class="testi-card__author">
-                    <div class="testi-card__avatar">S</div>
-                    <div>
-                        <div class="testi-card__name">Sunita Thapa</div>
-                        <div class="testi-card__role">Teacher & Life Coach, Pokhara</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testi-card reveal reveal-delay-2">
-                <span class="testi-card__quote-icon"><i class="fas fa-quote-left"></i></span>
-                <p class="testi-card__text">"The Student Memory Mastery program was a game-changer for my son. His grades improved dramatically and — more importantly — his confidence soared. Thank you, Dr. Chhabi!"</p>
-                <div class="testi-card__stars">★★★★★</div>
-                <div class="testi-card__author">
-                    <div class="testi-card__avatar">P</div>
-                    <div>
-                        <div class="testi-card__name">Priya Adhikari</div>
-                        <div class="testi-card__role">Parent, Chitwan</div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <div class="idx-testimonials__cta reveal">
@@ -1189,31 +1161,19 @@
 <section class="idx-section idx-videos" aria-labelledby="videos-heading">
     <div class="idx-container">
         <span class="gold-bar reveal"></span>
-        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="videos-heading">Watch &amp; Learn</h2>
-        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2">Free NLP insights from Dr. Chhabi — watch, learn, and transform</p>
+        <h2 class="idx-heading idx-heading--light reveal reveal-delay-1" id="videos-heading"><?= h(getSetting('videos_title', 'Watch & Learn')) ?></h2>
+        <p class="idx-subheading idx-subheading--light reveal reveal-delay-2">Free NLP insights from Chhabi — watch, learn, and transform</p>
 
         <div class="idx-videos__grid">
-            <div class="vid-thumb reveal">
-                <div class="vid-thumb__bg vid-thumb__bg-1"></div>
+            <?php foreach ($videos as $k => $vid): ?>
+            <div class="vid-thumb reveal <?= $k > 0 ? "reveal-delay-" . ($k % 4) : "" ?>" <?= $vid['youtube_url'] ? "onclick=\"window.open('{$vid['youtube_url']}', '_blank')\"" : "" ?>>
+                <div class="vid-thumb__bg" style="background: <?= h($vid['bg_gradient']) ?>"></div>
                 <div class="vid-thumb__overlay">
                     <div class="vid-play"><i class="fas fa-play"></i></div>
-                    <span class="vid-thumb__label">Introduction to NLP<br>& Subconscious Mind</span>
+                    <span class="vid-thumb__label"><?= nl2br(h($vid['title'])) ?></span>
                 </div>
             </div>
-            <div class="vid-thumb reveal reveal-delay-1">
-                <div class="vid-thumb__bg vid-thumb__bg-2"></div>
-                <div class="vid-thumb__overlay">
-                    <div class="vid-play"><i class="fas fa-play"></i></div>
-                    <span class="vid-thumb__label">How to Reprogram<br>Your Money Mindset</span>
-                </div>
-            </div>
-            <div class="vid-thumb reveal reveal-delay-2">
-                <div class="vid-thumb__bg vid-thumb__bg-3"></div>
-                <div class="vid-thumb__overlay">
-                    <div class="vid-play"><i class="fas fa-play"></i></div>
-                    <span class="vid-thumb__label">NLP Anchoring Technique<br>for Instant Confidence</span>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <div class="idx-videos__cta reveal">
@@ -1230,48 +1190,24 @@
 <section class="idx-section idx-blog" aria-labelledby="blog-heading">
     <div class="idx-container">
         <span class="gold-bar reveal"></span>
-        <h2 class="idx-heading reveal reveal-delay-1" id="blog-heading">Latest Insights</h2>
+        <h2 class="idx-heading reveal reveal-delay-1" id="blog-heading"><?= h(getSetting('blog_preview_title', 'Latest Insights')) ?></h2>
         <p class="idx-subheading reveal reveal-delay-2">Thoughts on NLP, mindset, leadership &amp; personal growth</p>
 
         <div class="idx-blog__grid">
-            <article class="bp-card reveal">
-                <div class="bp-card__img bp-img-1">
-                    <i class="fas fa-chart-line"></i>
-                    <span class="bp-card__cat">Business</span>
+            <?php foreach ($blog_posts as $k => $post): ?>
+            <article class="bp-card reveal <?= $k > 0 ? "reveal-delay-" . ($k % 4) : "" ?>">
+                <div class="bp-card__img" style="background: <?= h($post['image_gradient']) ?>">
+                    <i class="<?= h($post['image_icon']) ?>"></i>
+                    <span class="bp-card__cat"><?= h($post['category']) ?></span>
                 </div>
                 <div class="bp-card__body">
-                    <p class="bp-card__date"><i class="fas fa-calendar"></i> April 10, 2026</p>
-                    <h3 class="bp-card__title">7 Secrets to Grow Your Business Beyond Limits</h3>
-                    <p class="bp-card__excerpt">Being a businessperson opens unlimited opportunities. Discover the subconscious secrets behind scaling up your business and leading with impact.</p>
-                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
+                    <p class="bp-card__date"><i class="fas fa-calendar"></i> <?= date('F j, Y', strtotime($post['published_at'])) ?></p>
+                    <h3 class="bp-card__title"><?= h($post['title']) ?></h3>
+                    <p class="bp-card__excerpt"><?= h($post['excerpt']) ?></p>
+                    <a href="blog.php?slug=<?= urlencode($post['slug']) ?>" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </article>
-
-            <article class="bp-card reveal reveal-delay-1">
-                <div class="bp-card__img bp-img-2">
-                    <i class="fas fa-eye"></i>
-                    <span class="bp-card__cat">Mindset</span>
-                </div>
-                <div class="bp-card__body">
-                    <p class="bp-card__date"><i class="fas fa-calendar"></i> April 5, 2026</p>
-                    <h3 class="bp-card__title">Whatever You Focus Upon Expands</h3>
-                    <p class="bp-card__excerpt">A simple yet profound rule of the subconscious mind. Learn to direct your focus intentionally and watch every area of your life transform.</p>
-                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="bp-card reveal reveal-delay-2">
-                <div class="bp-card__img bp-img-3">
-                    <i class="fas fa-users"></i>
-                    <span class="bp-card__cat">Leadership</span>
-                </div>
-                <div class="bp-card__body">
-                    <p class="bp-card__date"><i class="fas fa-calendar"></i> March 28, 2026</p>
-                    <h3 class="bp-card__title">Handling People in Business: The Art of Influence</h3>
-                    <p class="bp-card__excerpt">Enhance team productivity by mastering NLP-based influence and motivation strategies that bring out the best in every person around you.</p>
-                    <a href="blog.php" class="bp-card__link">Read More <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
+            <?php endforeach; ?>
         </div>
 
         <div class="idx-blog__cta reveal">
@@ -1289,8 +1225,8 @@
     <div class="idx-container">
         <div class="idx-cta__inner reveal">
             <span class="idx-cta__tag"><i class="fas fa-fire"></i> &nbsp;Limited Seats Available</span>
-            <h2 class="idx-cta__heading" id="cta-heading">Ready to Transform Your Life?</h2>
-            <p class="idx-cta__sub">Take the first step today. Join thousands of people who have already transformed their mindset, relationships, career, and health through D-School System.</p>
+            <h2 class="idx-cta__heading" id="cta-heading"><?= h(getSetting('cta_heading', 'Ready to Transform Your Life?')) ?></h2>
+            <p class="idx-cta__sub"><?= h(getSetting('cta_subtext', 'Take the first step today. Join thousands of people who have already transformed their mindset, relationships, career, and health through D-School System.')) ?></p>
             <div class="idx-cta__actions">
                 <a href="calendar.php" class="btn-white">
                     <i class="fas fa-calendar-check"></i> Join a Workshop

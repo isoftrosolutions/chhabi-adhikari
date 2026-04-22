@@ -14,7 +14,7 @@
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
                 <div>
                     <h2 style="text-align: left; margin-bottom: 30px;">Holistic Healing through NLP</h2>
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">The <strong>NLP Wellness Practitioner</strong> workshop is a specialty program by <strong>Dr. Chhabi Adhikari</strong> that focuses on the mind-body connection. Learn how subconscious stress and limiting beliefs manifest as physical ailments.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">The <strong>NLP Wellness Practitioner</strong> workshop is a specialty program by <strong>Chhabi Adhikari</strong> that focuses on the mind-body connection. Learn how subconscious stress and limiting beliefs manifest as physical ailments.</p>
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">This program is ideal for those suffering from chronic issues or professionals in the health and wellness industry looking for an edge.</p>
                     
                     <ul style="list-style: none; margin-top: 30px;">

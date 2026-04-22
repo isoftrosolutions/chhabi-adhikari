@@ -67,7 +67,7 @@ if($msg): ?><div class="alert alert-success"><i class="fas fa-check-circle"></i>
     <div class="adm-card">
       <div class="adm-card-head"><h2>General Settings</h2></div>
       <div class="form-grid">
-        <div class="form-group full"><label>Site Title (browser tab & SEO)</label><input type="text" name="site_title" value="<?=s('site_title','Dr. Chhabi Adhikari | D School System')?>"></div>
+        <div class="form-group full"><label>Site Title (browser tab & SEO)</label><input type="text" name="site_title" value="<?=s('site_title','Chhabi Adhikari | D School System')?>"></div>
         <div class="form-group full"><label>Site Description (SEO meta)</label><textarea name="site_description" rows="2"><?=s('site_description')?></textarea></div>
         <div class="form-group"><label>Site Tagline (short)</label><input type="text" name="site_tagline" value="<?=s('site_tagline',"Nepal's Leading NLP Institute")?>"></div>
         <div class="form-group"><label>Footer Description</label><textarea name="footer_description" rows="3"><?=s('footer_description')?></textarea></div>
@@ -86,7 +86,7 @@ if($msg): ?><div class="alert alert-success"><i class="fas fa-check-circle"></i>
         <div class="form-group"><label>Title Line 2</label><input type="text" name="hero_title_line2" value="<?=s('hero_title_line2','Transform Your Life.')?>"></div>
         <div class="form-group full"><label>Hero Subtitle Text</label><textarea name="hero_subtitle" rows="3"><?=s('hero_subtitle')?></textarea></div>
         <div class="form-group">
-          <label>Hero / Dr. Chhabi Image</label>
+          <label>Hero / Chhabi Image</label>
           <?php if($rows['hero_image']??''): ?><img src="<?=s('hero_image')?>" style="max-width:200px;border-radius:8px;margin-bottom:8px;display:block"><?php endif; ?>
           <input type="file" name="hero_image" accept="image/*">
           <span class="form-hint">Or keep existing by leaving blank</span>

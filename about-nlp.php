@@ -15,8 +15,8 @@
                 <h2 style="text-align: left; margin-bottom: 30px;">What is NLP?</h2>
                 <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text-grey); margin-bottom: 30px;">**Neuro-Linguistic Programming (NLP)** is often described as the user manual for the human brain. It is the study of how our thoughts (Neuro), our language (Linguistic), and our patterns of behavior (Programming) work together to create our reality.</p>
                 
-                <h3 style="margin-top: 50px; margin-bottom: 25px;">Why NLP with Dr. Chhabi Adhikari?</h3>
-                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">While basic NLP teaches you 'how' to communicate, Dr. Chhabi's **Subconscious ReImprinting** methodology focus on 'why' you do what you do. It allows you to go deep into the basement of your mind and replace faulty wiring at the source.</p>
+                <h3 style="margin-top: 50px; margin-bottom: 25px;">Why NLP with Chhabi Adhikari?</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">While basic NLP teaches you 'how' to communicate, Chhabi's **Subconscious ReImprinting** methodology focus on 'why' you do what you do. It allows you to go deep into the basement of your mind and replace faulty wiring at the source.</p>
                 
                 <div style="background: var(--bg-section); padding: 40px; border-radius: 20px; margin-top: 50px;">
                     <h4 style="margin-bottom: 20px;">The Three Pillars of NLP:</h4>

@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS blog_posts (
   image_path VARCHAR(500),
   image_gradient VARCHAR(100) DEFAULT 'linear-gradient(135deg,#1a2f5a,#3b5998)',
   image_icon VARCHAR(50) DEFAULT 'fas fa-newspaper',
-  author VARCHAR(255) DEFAULT 'Dr. Chhabi Adhikari',
+  author VARCHAR(255) DEFAULT 'Chhabi Adhikari',
   is_published TINYINT DEFAULT 1,
   published_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -130,7 +130,7 @@ if (!$existing) {
 
 // Default settings
 $defaults = [
-    'site_title'        => 'Dr. Chhabi Adhikari | D School System | NLP Training in Nepal',
+    'site_title'        => 'Chhabi Adhikari | D School System | NLP Training in Nepal',
     'site_description'  => 'Certified NLP Trainer and Founder of D School System. Transform your life and career with expert coaching in Nepal.',
     'site_tagline'      => "Nepal's Leading NLP Institute",
     'contact_phone'     => '+977-9800000000',
@@ -140,21 +140,21 @@ $defaults = [
     'youtube_url'       => '#',
     'instagram_url'     => '#',
     'linkedin_url'      => '#',
-    'footer_description'=> "Nepal's Leading Authority in Personal Transformation. Founded by Dr. Chhabi Adhikari, dedicated to helping you master your subconscious mind.",
+    'footer_description'=> "Nepal's Leading Authority in Personal Transformation. Founded by Chhabi Adhikari, dedicated to helping you master your subconscious mind.",
     'stat_decades'      => '2+',
     'stat_lives'        => '1M+',
     'stat_cities'       => '20+',
     'stat_programs'     => '50+',
     'about_eyebrow'     => 'Meet the Founder',
-    'about_title'       => "Dr. Chhabi Adhikari —\nNepal's Foremost NLP Authority",
-    'about_text1'       => 'For more than two decades, Dr. Chhabi Adhikari has been transforming lives through Neuro-Linguistic Programming. His generative learning methodology uniquely helps participants learn, experience, and apply NLP in a simple yet profoundly effective way.',
-    'about_text2'       => 'With workshops spanning Kathmandu, Pokhara, Butwal, Chitwan, and beyond — and NLP videos watched by millions — Dr. Chhabi is Nepal\'s most trusted voice in personal transformation, leadership, and the science of the subconscious mind.',
+    'about_title'       => "Chhabi Adhikari —\nNepal's Foremost NLP Authority",
+    'about_text1'       => 'For more than two decades, Chhabi Adhikari has been transforming lives through Neuro-Linguistic Programming. His generative learning methodology uniquely helps participants learn, experience, and apply NLP in a simple yet profoundly effective way.',
+    'about_text2'       => 'With workshops spanning Kathmandu, Pokhara, Butwal, Chitwan, and beyond — and NLP videos watched by millions — Chhabi is Nepal\'s most trusted voice in personal transformation, leadership, and the science of the subconscious mind.',
     'cta_heading'       => 'Ready to Transform Your Life?',
     'cta_subtext'       => 'Take the first step today. Join thousands of people who have already transformed their mindset, relationships, career, and health through D-School System.',
     'hero_eyebrow'      => "Nepal's Leading NLP Institute",
     'hero_title_line1'  => 'Transform Your Mind.',
     'hero_title_line2'  => 'Transform Your Life.',
-    'hero_subtitle'     => 'Discover the power of Neuro-Linguistic Programming with Dr. Chhabi Adhikari — Nepal\'s most trusted NLP trainer with over two decades of transformational impact.',
+    'hero_subtitle'     => 'Discover the power of Neuro-Linguistic Programming with Chhabi Adhikari — Nepal\'s most trusted NLP trainer with over two decades of transformational impact.',
     'why_title'         => 'Why D-School System?',
     'why_subtitle'      => 'The standard of excellence that sets us apart',
     'services_title'    => 'Our Transformational Programs',
@@ -172,7 +172,7 @@ foreach ($defaults as $k => $v) $stmt->execute([$k, $v]);
 // Sample hero slides
 $pdo->exec("DELETE FROM hero_slides");
 $slides = [
-    ['TRANSFORM YOUR MIND. TRANSFORM YOUR LIFE.', 'Discover the power of NLP with Dr. Chhabi Adhikari.', 'Explore Programs', 'courses.php', 'Watch Videos', 'videos.php', 'linear-gradient(155deg,#0d1b35 0%,#1a2f5a 45%,#0f2040 100%)', 0],
+    ['TRANSFORM YOUR MIND. TRANSFORM YOUR LIFE.', 'Discover the power of NLP with Chhabi Adhikari.', 'Explore Programs', 'courses.php', 'Watch Videos', 'videos.php', 'linear-gradient(155deg,#0d1b35 0%,#1a2f5a 45%,#0f2040 100%)', 0],
     ['MASTER YOUR SUBCONSCIOUS MIND', 'Unlock unlimited potential with NLP training in Nepal.', 'Start NLP Journey', 'nlp-practitioner.php', 'View Calendar', 'calendar.php', 'linear-gradient(155deg,#1a2f5a 0%,#2d4a8a 60%,#1a2f5a 100%)', 1],
     ['AWAKEN THE POWER WITHIN YOU', 'Join thousands who have transformed their lives with D-School System.', 'Join a Workshop', 'calendar.php', 'Our Success Stories', 'success-stories.php', 'linear-gradient(155deg,#7c3aed 0%,#1a2f5a 60%,#0d1b35 100%)', 2],
 ];
@@ -213,7 +213,7 @@ $videos = [
     ['NLP Anchoring Technique for Instant Confidence', 'Learn the powerful NLP anchoring technique to access your best state on demand.', '', '', 'NLP', 'linear-gradient(135deg,#059669,#027a50)', 1, 2],
     ['Student Memory Mastery Techniques', 'Powerful memory techniques for students to improve concentration and retention.', '', '', 'Students', 'linear-gradient(135deg,#dc2626,#b91c1c)', 1, 3],
     ['Corporate Leadership with NLP', 'How to use NLP principles to become an extraordinary leader in your organisation.', '', '', 'Leadership', 'linear-gradient(135deg,#0891b2,#0e7490)', 1, 4],
-    ['The Wheel of Life — Balance Your Life with NLP', 'Dr. Chhabi explains how to achieve balance across all areas of your life using NLP.', '', '', 'Personal Growth', 'linear-gradient(135deg,#F5A623,#c85f00)', 1, 5],
+    ['The Wheel of Life — Balance Your Life with NLP', 'Chhabi explains how to achieve balance across all areas of your life using NLP.', '', '', 'Personal Growth', 'linear-gradient(135deg,#F5A623,#c85f00)', 1, 5],
 ];
 $s = $pdo->prepare("INSERT INTO videos (title,description,youtube_url,youtube_id,category,bg_gradient,is_active,sort_order) VALUES (?,?,?,?,?,?,?,?)");
 foreach ($videos as $v) $s->execute($v);
@@ -221,12 +221,12 @@ foreach ($videos as $v) $s->execute($v);
 // Sample testimonials
 $pdo->exec("DELETE FROM testimonials");
 $testis = [
-    ['Rajesh Shrestha', 'Entrepreneur', 'Kathmandu', "Dr. Chhabi's NLP workshop completely changed the way I see myself and my business. Within three months of applying what I learned, my income doubled. The subconscious reprogramming is real and it works.", 5, 'R', 1, 0],
-    ['Sunita Thapa', 'Teacher & Life Coach', 'Pokhara', "I attended the NLP Master Practitioner workshop feeling stuck in life. I left with a completely new mindset. Dr. Chhabi has a gift for making complex psychology feel natural and immediately applicable.", 5, 'S', 1, 1],
-    ['Priya Adhikari', 'Parent', 'Chitwan', "The Student Memory Mastery program was a game-changer for my son. His grades improved dramatically and his confidence soared. Thank you, Dr. Chhabi!", 5, 'P', 1, 2],
+    ['Rajesh Shrestha', 'Entrepreneur', 'Kathmandu', "Chhabi's NLP workshop completely changed the way I see myself and my business. Within three months of applying what I learned, my income doubled. The subconscious reprogramming is real and it works.", 5, 'R', 1, 0],
+    ['Sunita Thapa', 'Teacher & Life Coach', 'Pokhara', "I attended the NLP Master Practitioner workshop feeling stuck in life. I left with a completely new mindset. Chhabi has a gift for making complex psychology feel natural and immediately applicable.", 5, 'S', 1, 1],
+    ['Priya Adhikari', 'Parent', 'Chitwan', "The Student Memory Mastery program was a game-changer for my son. His grades improved dramatically and his confidence soared. Thank you, Chhabi!", 5, 'P', 1, 2],
     ['Bikash Gurung', 'Sales Manager', 'Butwal', "After attending the Money Mastery workshop, I completely shifted my relationship with money. My sales performance improved by 200% and I finally feel in control of my financial destiny.", 5, 'B', 1, 3],
-    ['Anita KC', 'Business Owner', 'Pokhara', "The TTCLC life coaching program was transformational. I'm now a certified coach helping others. Dr. Chhabi's teaching style is engaging, practical, and deeply impactful.", 5, 'A', 1, 4],
-    ['Suresh Poudel', 'HR Director', 'Kathmandu', "We brought Dr. Chhabi in for corporate training and it was the best investment we made. The team's communication and performance improved dramatically within weeks.", 5, 'S', 1, 5],
+    ['Anita KC', 'Business Owner', 'Pokhara', "The TTCLC life coaching program was transformational. I'm now a certified coach helping others. Chhabi's teaching style is engaging, practical, and deeply impactful.", 5, 'A', 1, 4],
+    ['Suresh Poudel', 'HR Director', 'Kathmandu', "We brought Chhabi in for corporate training and it was the best investment we made. The team's communication and performance improved dramatically within weeks.", 5, 'S', 1, 5],
 ];
 $s = $pdo->prepare("INSERT INTO testimonials (name,role,location,content,rating,avatar_initial,is_active,sort_order) VALUES (?,?,?,?,?,?,?,?)");
 foreach ($testis as $t) $s->execute($t);

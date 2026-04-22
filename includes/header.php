@@ -1,7 +1,7 @@
 <?php
 if (file_exists(__DIR__ . '/../config.php')) {
     require_once __DIR__ . '/../config.php';
-    $siteTitle = getSetting('site_title', 'Dr. Chhabi Adhikari | D School System | NLP Training in Nepal');
+    $siteTitle = getSetting('site_title', 'Chhabi Adhikari | D School System | NLP Training in Nepal');
     $siteMeta  = getSetting('site_description', 'Certified NLP Trainer and Founder of D School System. Transform your life and career with expert coaching in Nepal.');
 } else {
     $siteTitle = 'Chhabi Adhikari | D School System | NLP Training in Nepal';
@@ -27,6 +27,7 @@ if (file_exists(__DIR__ . '/../config.php')) {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
+    <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png">
     <link rel="manifest" href="<?= BASE_URL ?>/manifest.json">
     <meta name="theme-color" content="#1a2f5a">
 </head>

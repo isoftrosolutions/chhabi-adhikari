@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $category   = trim($_POST['category'] ?? 'General');
     $excerpt    = trim($_POST['excerpt'] ?? '');
     $content    = trim($_POST['content'] ?? '');
-    $author     = trim($_POST['author'] ?? 'Dr. Chhabi Adhikari');
+    $author     = trim($_POST['author'] ?? 'Chhabi Adhikari');
     $gradient   = trim($_POST['image_gradient'] ?? 'linear-gradient(135deg,#1a2f5a,#3b5998)');
     $icon       = trim($_POST['image_icon'] ?? 'fas fa-newspaper');
     $published  = isset($_POST['is_published']) ? 1 : 0;
@@ -172,7 +172,7 @@ else:
 
       <div class="form-group">
         <label>Author</label>
-        <input type="text" name="author" value="<?= h($p['author'] ?? 'Dr. Chhabi Adhikari') ?>">
+        <input type="text" name="author" value="<?= h($p['author'] ?? 'Chhabi Adhikari') ?>">
       </div>
 
       <div class="form-group">

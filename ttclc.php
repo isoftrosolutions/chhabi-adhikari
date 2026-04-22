@@ -13,7 +13,7 @@
         <div class="container">
             <div style="max-width: 900px; margin: 0 auto; text-align: center;">
                 <h2 style="margin-bottom: 30px;">Become a Certified Professional Life Coach</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-grey); margin-bottom: 40px;">The <strong>Train The Competent Life Coach (TTCLC)</strong> is Nepal's most comprehensive residential program designed to transform your passion for helping others into a professional career. Taught directly by <strong>Dr. Chhabi Adhikari</strong>, this program equips you with the tools, confidence, and certification to coach individuals and corporate teams.</p>
+                <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-grey); margin-bottom: 40px;">The <strong>Train The Competent Life Coach (TTCLC)</strong> is Nepal's most comprehensive residential program designed to transform your passion for helping others into a professional career. Taught directly by <strong>Chhabi Adhikari</strong>, this program equips you with the tools, confidence, and certification to coach individuals and corporate teams.</p>
                 <div style="height: 5px; width: 100px; background: var(--primary); margin: 0 auto 40px;"></div>
             </div>
 
