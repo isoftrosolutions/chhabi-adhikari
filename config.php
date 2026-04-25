@@ -5,9 +5,9 @@ $baseUrl = $docRoot ? str_replace($docRoot, '', $dir) : '';
 define('BASE_URL', rtrim($baseUrl, '/'));
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'dschool_cms');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'ektamultp_ars');
+define('DB_USER', 'ektamultp_ars');
+define('DB_PASS', '-NbQn34@cPuyMerU');
 define('UPLOAD_DIR', __DIR__ . '/uploads/');
 define('UPLOAD_URL', BASE_URL . '/uploads/');
 
