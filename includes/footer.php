@@ -31,11 +31,10 @@ $footDesc = getSetting('footer_description', "Nepal's Leading Authority in Perso
                 <div class="footer-col">
                     <h4>Programs</h4>
                     <ul style="padding:0;">
-                        <li><a href="<?= BASE_URL ?>/nlp-sr-master">NLP SR Master Practitioner</a></li>
                         <li><a href="<?= BASE_URL ?>/ttclc">Train the Life Coach</a></li>
-                        <li><a href="<?= BASE_URL ?>/nlp-practitioner">NLP Practitioner</a></li>
                         <li><a href="<?= BASE_URL ?>/money">Money Mastery</a></li>
                         <li><a href="<?= BASE_URL ?>/online-courses">Online Courses</a></li>
+                        <li><a href="<?= BASE_URL ?>/courses">All Programs</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
