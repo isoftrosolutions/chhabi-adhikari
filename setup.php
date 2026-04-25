@@ -2,7 +2,7 @@
 // Run this once to set up the database and seed data.
 // Delete or restrict access after running.
 
-$host = 'localhost'; $user = 'ektamultp_ars'; $pass = '-NbQn34@cPuyMerU'; $dbname = 'ektamultp_ars';
+$host = 'localhost'; $user = 'ektamultp_ars'; $pass = ',~z!{w,xcl3r.IY='; $dbname = 'ektamultp_ars';
 
 try {
     $pdo = new PDO("mysql:host=$host;charset=utf8mb4", $user, $pass,
