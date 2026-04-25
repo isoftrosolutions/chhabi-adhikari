@@ -20,7 +20,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Total Transformation Bundle</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">The ultimate wealth and wellness mastery audio program for complete life change.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
                 </div>
             </div>
             
@@ -32,7 +32,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Subconscious Money Mastery</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">Specifically designed to remove poverty consciousness and attract abundance.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Health & Wellness Visualization</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">Guided sessions to heal psycho-somatic ailments and boost physical energy.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">VIEW DETAILS</a>
                 </div>
             </div>
         </div>

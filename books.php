@@ -21,7 +21,7 @@
                     <h3 style="margin-bottom: 15px;">Awaken The God of Miracle</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">Learn how to awaken the miracle power within you. A comprehensive guide to subconscious mastery.</p>
                     <div style="color: var(--primary); font-weight: 700; margin-bottom: 20px;">Price: Rs. 11,000 (FREE with Workshop)</div>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
                 </div>
             </div>
             
@@ -33,7 +33,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Recharge Your Life @ NLP</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">A practical manual for applying NLP techniques to daily challenges and personal growth.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Win Every Match Every Time</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">Specially designed for sports mental conditioning and peak performance mindset.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
                 </div>
             </div>
 
@@ -57,7 +57,7 @@
                 <div style="padding: 25px;">
                     <h3 style="margin-bottom: 15px;">Effective Ways of Successful Parenting</h3>
                     <p style="color: #666; font-size: 0.95rem; margin-bottom: 20px;">Unlock the secrets to building a strong and positive relationship with your children using NLP.</p>
-                    <a href="#" class="btn-primary" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
+                    <a href="#" class="btn-primary coming-soon" style="display: block; text-align: center; padding: 12px;">ORDER NOW</a>
                 </div>
             </div>
         </div>
