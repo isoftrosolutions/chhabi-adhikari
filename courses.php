@@ -47,7 +47,7 @@
                         <div class="course-pricing">
                             <span class="price">₹25,000</span>
                         </div>
-                        <a href="#contact" class="btn btn-primary">Enroll Now</a>
+                        <a href="contact.php" class="btn btn-primary">Enroll Now</a>
                     </div>
                 </article>
 
@@ -89,7 +89,7 @@
                         <div class="course-pricing">
                             <span class="price">₹45,000</span>
                         </div>
-                        <a href="#contact" class="btn btn-primary">Apply Now</a>
+                        <a href="contact.php" class="btn btn-primary">Apply Now</a>
                     </div>
                 </article>
 
@@ -173,7 +173,7 @@
                         <div class="course-pricing">
                             <span class="price">₹8,000</span>
                         </div>
-                        <a href="#contact" class="btn btn-primary">Enroll Child</a>
+                        <a href="contact.php" class="btn btn-primary">Enroll Child</a>
                     </div>
                 </article>
 
@@ -215,7 +215,7 @@
                         <div class="course-pricing">
                             <span class="price">₹5,000/session</span>
                         </div>
-                        <a href="#contact" class="btn btn-secondary">Book Session</a>
+                        <a href="contact.php" class="btn btn-secondary">Book Session</a>
                     </div>
                 </article>
 

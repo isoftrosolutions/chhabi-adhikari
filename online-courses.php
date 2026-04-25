@@ -22,7 +22,7 @@
                     <div class="blog-content">
                         <h4 class="blog-title">NLP Practitioner (10-Day E-Workshop)</h4>
                         <p class="blog-excerpt">Complete foundation of NLP delivered through high-definition video modules and live doubt sessions.</p>
-                        <a href="nlp-practitioner.php" class="btn-primary" style="margin-top: 20px; width: 100%; text-align: center;">COURSE DETAILS</a>
+                        <a href="nlp-practitioner.php" class="btn-primary coming-soon" style="margin-top: 20px; width: 100%; text-align: center;">COURSE DETAILS</a>
                     </div>
                 </div>
                 <!-- Course 2 -->
@@ -40,7 +40,7 @@
             </div>
             
             <div style="text-align: center; margin-top: 60px;">
-                 <a href="shop.php" style="color: var(--secondary); font-weight: 700;">Visit Full Digital Store →</a>
+                 <a href="shop.php" class="coming-soon" style="color: var(--secondary); font-weight: 700;">Visit Full Digital Store →</a>
             </div>
         </div>
     </section>
