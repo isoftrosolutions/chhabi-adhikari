@@ -12,9 +12,9 @@ MySQL - 12.0.2-MariaDB : Database - dschool_cms
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`dschool_cms` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-
-USE `dschool_cms`;
+-- CREATE DATABASE /*!32312 IF NOT EXISTS*/`dschool_cms` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+-- 
+-- USE `dschool_cms`;
 
 /*Table structure for table `admin_users` */
 
@@ -65,6 +65,42 @@ insert  into `blog_posts`(`id`,`title`,`slug`,`category`,`excerpt`,`content`,`im
 (16,'The Power of NLP: Rewire Your Mind','power-of-nlp','NLP','NLP is a complete system for understanding how your brain creates your reality.','<p>Neuro-Linguistic Programming is not just a technique — it is a complete system for understanding how your brain creates your reality. Discover how NLP can help you break old patterns and install empowering beliefs.</p>',NULL,'linear-gradient(135deg,#7c3aed,#5b21b6)','fas fa-brain','Dr. Chhabi Adhikari',1,'2026-04-20 10:31:35','2026-04-20 10:31:35'),
 (17,'Reprogram Your Wealth: The Money Mindset Shift','money-mindset-shift','Money Mastery','Learn how to identify and dissolve your limiting beliefs around wealth and abundance.','<p>Most financial struggles are not about money — they are about your beliefs about money. Learn how to identify and dissolve your limiting beliefs around wealth and abundance.</p>',NULL,'linear-gradient(135deg,#dc2626,#b91c1c)','fas fa-coins','Dr. Chhabi Adhikari',1,'2026-04-20 10:31:35','2026-04-20 10:31:35'),
 (18,'The 5-Minute Morning Ritual That Changes Everything','5-minute-morning-ritual','Mindset','Discover a simple yet powerful 5-minute ritual that top performers use to prime their mindset.','<p>How you start your morning sets the tone for your entire day. Discover a simple yet powerful 5-minute ritual that top performers use to prime their mindset for success.</p>',NULL,'linear-gradient(135deg,#0891b2,#0e7490)','fas fa-lightbulb','Dr. Chhabi Adhikari',1,'2026-04-20 10:31:35','2026-04-20 10:31:35');
+
+/*Table structure for table `contact_messages` */
+
+DROP TABLE IF EXISTS `contact_messages`;
+
+CREATE TABLE `contact_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `is_read` tinyint(4) DEFAULT 0,
+  `replied_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `contact_messages` */
+
+insert  into `contact_messages`(`id`,`name`,`email`,`message`,`is_read`,`replied_at`,`created_at`) values 
+(1,'Nepal Cyber Firm','nepalcyberfirm@gmail.com','hello',1,NULL,'2026-04-24 22:52:41'),
+(2,'Nepal Cyber Firm','nepalcyberfirm@gmail.com','hello',1,NULL,'2026-04-24 22:52:47');
+
+/*Table structure for table `contact_replies` */
+
+DROP TABLE IF EXISTS `contact_replies`;
+
+CREATE TABLE `contact_replies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(11) NOT NULL,
+  `admin_name` varchar(255) DEFAULT 'D-School System',
+  `reply_text` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `contact_replies` */
 
 /*Table structure for table `gallery` */
 
@@ -179,8 +215,8 @@ insert  into `settings`(`id`,`setting_key`,`setting_value`) values
 (1,'site_title','Dr. Chhabi Adhikari | D School System | NLP Training in Nepal'),
 (2,'site_description','Certified NLP Trainer and Founder of D School System. Transform your life and career with expert coaching in Nepal.'),
 (3,'site_tagline','Nepal\'s Leading NLP Institute'),
-(4,'contact_phone','+977-9800000000'),
-(5,'contact_email','info@dschoolsystem.com'),
+(4,'contact_phone','+977 985-6029135'),
+(5,'contact_email','mindapp69@gmail.com'),
 (6,'contact_address','Kathmandu, Nepal'),
 (7,'facebook_url','#'),
 (8,'youtube_url','#'),
@@ -268,7 +304,7 @@ insert  into `videos`(`id`,`title`,`description`,`youtube_url`,`youtube_id`,`cat
 (18,'The Wheel of Life — Balance Your Life with NLP','Dr. Chhabi explains how to achieve balance across all areas of your life using NLP.','','','Personal Growth','linear-gradient(135deg,#F5A623,#c85f00)',1,5,'2026-04-20 10:31:35'),
 (19,'gehara hua','','https://www.youtube.com/watch?v=GVizJ_jpUnw&list=RDGVizJ_jpUnw&start_radio=1','GVizJ_jpUnw','NLP','linear-gradient(135deg,#1a2f5a,#2d4a8a)',1,0,'2026-04-20 10:46:21');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
