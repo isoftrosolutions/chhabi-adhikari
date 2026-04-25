@@ -4,6 +4,7 @@ function adminHeader(string $title, string $current = ''): void {
         'index'        => ['icon'=>'fas fa-tachometer-alt', 'label'=>'Dashboard',    'url'=> BASE_URL . '/admin/index.php'],
         'hero'         => ['icon'=>'fas fa-images',         'label'=>'Hero Slides',  'url'=> BASE_URL . '/admin/hero.php'],
         'services'     => ['icon'=>'fas fa-th-large',       'label'=>'Services',     'url'=> BASE_URL . '/admin/services.php'],
+        'messages'     => ['icon'=>'fas fa-envelope',       'label'=>'Messages',     'url'=> BASE_URL . '/admin/messages.php'],
         'blog'         => ['icon'=>'fas fa-newspaper',      'label'=>'Blog Posts',   'url'=> BASE_URL . '/admin/blog.php'],
         'videos'       => ['icon'=>'fas fa-film',           'label'=>'Videos',       'url'=> BASE_URL . '/admin/videos.php'],
         'testimonials' => ['icon'=>'fas fa-quote-left',     'label'=>'Testimonials', 'url'=> BASE_URL . '/admin/testimonials.php'],
@@ -50,6 +51,10 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t
 .adm-nav a:hover{background:rgba(255,255,255,.06);color:#fff;border-left-color:rgba(245,166,35,.4);}
 .adm-nav a.active{background:rgba(245,166,35,.12);color:var(--gold);border-left-color:var(--gold);}
 .adm-nav a i{width:18px;text-align:center;font-size:.95rem;}
+.adm-nav .badge-count{
+  background:var(--gold);color:#fff;border-radius:10px;padding:2px 6px;
+  font-size:.68rem;font-weight:700;margin-left:auto;
+}
 .adm-nav-label{
   font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
   color:rgba(255,255,255,.25);padding:18px 24px 6px;
@@ -213,9 +218,18 @@ textarea{resize:vertical;min-height:100px;}
   </div>
   <nav class="adm-nav">
     <div class="adm-nav-label">Main</div>
-    <?php foreach ($nav as $key => $item): ?>
+    <?php 
+    $unreadCount = 0;
+    try {
+        $unreadCount = getDB()->query("SELECT COUNT(*) FROM contact_messages WHERE is_read = 0")->fetchColumn() ?: 0;
+    } catch (Exception $e) {}
+    foreach ($nav as $key => $item): 
+    ?>
       <a href="<?= $item['url'] ?>" class="<?= $current === $key ? 'active' : '' ?>">
         <i class="<?= $item['icon'] ?>"></i> <?= $item['label'] ?>
+        <?php if ($key === 'messages' && $unreadCount > 0): ?>
+          <span class="badge-count"><?= $unreadCount ?></span>
+        <?php endif; ?>
       </a>
     <?php endforeach; ?>
     <div class="adm-nav-label">Site</div>

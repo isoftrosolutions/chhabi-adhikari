@@ -59,6 +59,7 @@ if($msg): ?><div class="alert alert-success"><i class="fas fa-check-circle"></i>
     <button type="button" class="tab-btn" data-tab="tab-sections">Section Headings</button>
     <button type="button" class="tab-btn" data-tab="tab-stats">Stats</button>
     <button type="button" class="tab-btn" data-tab="tab-contact">Contact & Social</button>
+    <button type="button" class="tab-btn" data-tab="tab-email">Email / SMTP</button>
     <button type="button" class="tab-btn" data-tab="tab-account">Account</button>
   </div>
 
@@ -167,6 +168,28 @@ if($msg): ?><div class="alert alert-success"><i class="fas fa-check-circle"></i>
         <div class="form-group"><label><i class="fab fa-youtube" style="color:red"></i> YouTube URL</label><input type="url" name="youtube_url" value="<?=s('youtube_url')?>"></div>
         <div class="form-group"><label><i class="fab fa-instagram" style="color:#e1306c"></i> Instagram URL</label><input type="url" name="instagram_url" value="<?=s('instagram_url')?>"></div>
         <div class="form-group"><label><i class="fab fa-linkedin" style="color:#0a66c2"></i> LinkedIn URL</label><input type="url" name="linkedin_url" value="<?=s('linkedin_url')?>"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email / SMTP -->
+  <div id="tab-email" class="tab-content">
+    <div class="adm-card">
+      <div class="adm-card-head"><h2>SMTP Email Settings</h2></div>
+      <div class="alert alert-info"><i class="fas fa-info-circle"></i> Configure SMTP to send email replies from the admin panel. Gmail, SendGrid, Mailgun, etc. supported.</div>
+      <div class="form-grid">
+        <div class="form-group"><label>SMTP Host</label><input type="text" name="smtp_host" value="<?=s('smtp_host')?>" placeholder="smtp.gmail.com"></div>
+        <div class="form-group"><label>SMTP Port</label><input type="text" name="smtp_port" value="<?=s('smtp_port','587')?>" placeholder="587"></div>
+        <div class="form-group"><label>SMTP Username (Email)</label><input type="email" name="smtp_username" value="<?=s('smtp_username')?>"></div>
+        <div class="form-group"><label>SMTP Password / App Password</label><input type="password" name="smtp_password" value="<?=s('smtp_password')?>" placeholder="Leave blank to keep current"></div>
+        <div class="form-group"><label>From Name</label><input type="text" name="smtp_from_name" value="<?=s('smtp_from_name','D-School System')?>"></div>
+        <div class="form-group"><label>Encryption</label>
+          <select name="smtp_encryption">
+            <option value="tls" <?=(s('smtp_encryption','tls')==='tls')?'selected':''?>>TLS</option>
+            <option value="ssl" <?=(s('smtp_encryption','tls')==='ssl')?'selected':''?>>SSL</option>
+            <option value="" <?=(s('smtp_encryption','tls')==='')?'selected':''?>>None</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
