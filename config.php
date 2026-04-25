@@ -6,7 +6,7 @@ define('BASE_URL', rtrim($baseUrl, '/'));
 
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'ektamultp_dschool');
-define('DB_USER', 'ektamultp_dschool');
+define('DB_USER', 'ektamultp_d-school');
 define('DB_PASS', ',~z!{w,xcl3r.IY=');
 define('UPLOAD_DIR', __DIR__ . '/uploads/');
 define('UPLOAD_URL', BASE_URL . '/uploads/');
