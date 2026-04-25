@@ -1,4 +1,13 @@
 <?php
+$pageTitle = 'Insights & Inspiration Blog';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Insights & Inspiration - D-school Blog",
+  "description": "Read the latest articles on NLP, personal growth, leadership, and business mastery by Chhabi Adhikari."
+}
+</script>';
 include 'includes/header.php';
 $pdo = getDB();
 $stmt = $pdo->query("SELECT category, COUNT(*) as count FROM blog_posts WHERE is_published = 1 GROUP BY category ORDER BY count DESC LIMIT 10");

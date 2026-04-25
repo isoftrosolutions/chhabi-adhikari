@@ -1,4 +1,15 @@
-<?php include 'includes/header.php'; ?>
+<?php
+$pageTitle = 'About Us - Chhabi Adhikari & D-school System';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Chhabi Adhikari & D-school System",
+  "description": "Learn about Chhabi Adhikari, Nepal\'s foremost NLP authority, and the mission of D-school System to transform lives."
+}
+</script>';
+include 'includes/header.php';
+?>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

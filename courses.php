@@ -1,4 +1,15 @@
-<?php include 'includes/header.php'; ?>
+<?php
+$pageTitle = 'Premium Courses & Programs';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Premium NLP Courses & Life Coaching Programs | D-school",
+  "description": "Explore premium NLP courses, life coaching, and student memory mastery programs by Chhabi Adhikari."
+}
+</script>';
+include 'includes/header.php';
+?>
 
     <!-- Courses Section -->
     <section class="courses-section" id="courses">

@@ -1,4 +1,13 @@
 <?php
+$pageTitle = 'Home';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "D-school | NLP Training & Coaching by Chhabi Adhikari",
+  "description": "Nepal\'s Foremost NLP Authority. Transform your life and career with expert coaching."
+}
+</script>';
 include 'includes/header.php';
 $hero = getSetting('hero_title_line1'); // Just to ensure config is loaded. Actually config is loaded in header.php.
 $pdo = getDB();

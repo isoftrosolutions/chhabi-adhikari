@@ -1,4 +1,28 @@
-<?php include 'includes/header.php'; ?>
+<?php
+$pageTitle = 'Digital Resources & E-Workshop Academy';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What is NLP?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Neuro-Linguistic Programming (NLP) is a psychological approach that involves analyzing strategies used by successful individuals and applying them to reach a personal goal. It relates thoughts, language, and patterns of behavior learned through experience to specific outcomes."
+    }
+  }, {
+    "@type": "Question",
+    "name": "Who is Chhabi Adhikari?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Chhabi Adhikari is Nepal\'s foremost NLP authority and the founder of the D-School System, with over two decades of experience in life coaching and corporate training."
+    }
+  }]
+}
+</script>';
+include 'includes/header.php';
+?>
 
     <!-- Page Banner -->
     <section class="page-banner" style="background: linear-gradient(rgba(26, 47, 90, 0.8), rgba(26, 47, 90, 0.8)), url('assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png') center/cover; padding: 100px 0; color: #fff; text-align: center; margin-top: 80px;">
@@ -11,7 +35,19 @@
     <!-- Online Courses Section -->
     <section class="online-courses-section" style="padding: 100px 0; background: #fff;">
         <div class="container">
-            <h2 style="margin-bottom: 50px;">E-Workshop Academy</h2>
+            <h2 style="margin-bottom: 20px;">E-Workshop Academy</h2>
+            
+            <!-- AEO Optimized Content -->
+            <div class="aeo-content" style="max-width: 800px; margin-bottom: 50px;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: var(--secondary);">What is NLP?</h3>
+                <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-grey); margin-bottom: 20px;">
+                    Neuro-Linguistic Programming (NLP) is a psychological approach that involves analyzing strategies used by successful individuals and applying them to reach a personal goal. It relates thoughts, language, and patterns of behavior learned through experience to specific outcomes.
+                </p>
+                <h3 style="font-size: 1.5rem; margin-bottom: 10px; color: var(--secondary);">Who is Chhabi Adhikari?</h3>
+                <p style="font-size: 1.05rem; line-height: 1.6; color: var(--text-grey);">
+                    Chhabi Adhikari is Nepal's foremost NLP authority and the founder of the D-School System, with over two decades of experience in life coaching and corporate training.
+                </p>
+            </div>
             <div class="blog-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
                 <!-- Course 1 -->
                 <div class="blog-card" style="box-shadow: var(--shadow-md);">

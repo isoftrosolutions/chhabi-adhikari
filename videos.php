@@ -1,4 +1,13 @@
 <?php
+$pageTitle = 'Video Library';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoGallery",
+  "name": "NLP Video Library by Chhabi Adhikari",
+  "description": "Watch Chhabi Adhikari\'s most impactful NLP sessions and insights."
+}
+</script>';
 include 'includes/header.php';
 $pdo = getDB();
 $stmt = $pdo->query("SELECT * FROM videos WHERE is_active = 1 ORDER BY sort_order ASC, created_at DESC");

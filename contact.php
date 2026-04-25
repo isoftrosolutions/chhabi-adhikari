@@ -1,4 +1,13 @@
 <?php 
+$pageTitle = 'Contact Us';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Chhabi Adhikari & D-school System",
+  "description": "Get in touch with us for NLP workshops, coaching, or any inquiries."
+}
+</script>';
 include 'includes/header.php';
 
 $success = false;

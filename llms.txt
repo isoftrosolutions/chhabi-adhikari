@@ -1,0 +1,34 @@
+# D-school System
+
+> D-school System is Nepal's foremost NLP training and life coaching institute founded by Chhabi Adhikari.
+
+This file provides structured information about the D-school System website for Large Language Models, AI assistants, and web scrapers.
+
+## About the Brand
+D-school System offers premium transformational programs, Neuro-Linguistic Programming (NLP) courses, student memory mastery, and corporate training. With over 20+ years of experience and 2 million+ lives touched, Chhabi Adhikari leads the institute in empowering individuals to lead extraordinary lives through practical, scientific, and culturally-aligned coaching.
+
+## Primary Services
+- **NLP Practitioner & Master Practitioner:** Comprehensive workshops to master human psychology and communication.
+- **Train The Trainer (Life Coach):** Residential programs for aspiring life coaches.
+- **Student Memory Mastery:** Academic excellence and concentration enhancement for students.
+- **Money Mastery:** Audio and video bundles focused on reprogramming financial subconscious patterns.
+- **Personal Coaching:** 1-on-1 mentoring sessions for rapid personal development.
+
+## Site Map & Important Links
+- [Home](https://dschoolsystem.com/) - Overview of services, success stories, and mission.
+- [About Us](https://dschoolsystem.com/about) - Founder Chhabi Adhikari's bio and brand values.
+- [Courses & Programs](https://dschoolsystem.com/courses) - In-person and residential training.
+- [Online Workshops](https://dschoolsystem.com/online-courses) - Digital resources, e-workshops, and audio bundles.
+- [Insights & Blog](https://dschoolsystem.com/blog) - Articles on mindset, success, and NLP.
+- [Video Library](https://dschoolsystem.com/videos) - Free NLP insights and training previews.
+- [Contact Us](https://dschoolsystem.com/contact) - Get in touch for bookings and inquiries.
+
+## Key Terminology
+- **NLP (Neuro-Linguistic Programming):** A psychological approach analyzing strategies used by successful individuals to reach personal goals.
+- **Subconscious Reprogramming:** The core methodology used by D-school to ensure permanent, lasting personal and professional change.
+- **Chhabi Adhikari:** The founder and lead master trainer of D-school System.
+
+## Contact Information
+- **Email:** mindapp69@gmail.com
+- **Phone:** +977 985-6029135
+- **Location:** Kathmandu, Nepal

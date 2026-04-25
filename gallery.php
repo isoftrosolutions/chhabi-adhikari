@@ -1,4 +1,13 @@
 <?php 
+$pageTitle = 'Photo Gallery';
+$pageSchema = '<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Photo Gallery - Chhabi Adhikari NLP Training",
+  "description": "Explore moments from Chhabi Adhikari\'s NLP training sessions."
+}
+</script>';
 include 'includes/header.php';
 
 $galleryImages = [];
