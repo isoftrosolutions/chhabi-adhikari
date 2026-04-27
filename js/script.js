@@ -220,15 +220,9 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Dynamic Header Background
+    // Scroll-shrink header
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(15, 23, 42, 0.98)';
-            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.background = 'rgba(15, 23, 42, 0.95)';
-            header.style.boxShadow = 'none';
-        }
-    });
+        header.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
 });

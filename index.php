@@ -44,7 +44,7 @@ $blog_posts = $stmt->fetchAll();
 @keyframes ticker   { from { transform:translateX(0); } to { transform:translateX(-50%); } }
 @keyframes float    { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
 @keyframes shimmer  { 0%{background-position:-400px 0;} 100%{background-position:400px 0;} }
-@keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(245,166,35,.5);} 70%{box-shadow:0 0 0 18px rgba(245,166,35,0);} 100%{box-shadow:0 0 0 0 rgba(245,166,35,0);} }
+@keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(255,106,0,.5);} 70%{box-shadow:0 0 0 18px rgba(255,106,0,0);} 100%{box-shadow:0 0 0 0 rgba(255,106,0,0);} }
 
 .reveal { opacity:0; transform:translateY(36px); transition:opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
@@ -94,14 +94,14 @@ $blog_posts = $stmt->fetchAll();
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(155deg, #0d1b35 0%, #1a2f5a 45%, #0f2040 100%);
+    background: linear-gradient(155deg, #060f22 0%, #0B1E3F 50%, #0a1830 100%);
 }
 .idx-hero__bg-pattern {
     position: absolute;
     inset: 0;
     background-image:
-        radial-gradient(circle at 80% 20%, rgba(245,166,35,.12) 0%, transparent 50%),
-        radial-gradient(circle at 10% 80%, rgba(245,166,35,.07) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(255,106,0,.12) 0%, transparent 50%),
+        radial-gradient(circle at 10% 80%, rgba(255,106,0,.07) 0%, transparent 40%),
         repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(255,255,255,.015) 60px, rgba(255,255,255,.015) 61px);
     pointer-events: none;
 }
@@ -121,8 +121,8 @@ $blog_posts = $stmt->fetchAll();
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(245,166,35,.15);
-    border: 1px solid rgba(245,166,35,.35);
+    background: rgba(255,106,0,.15);
+    border: 1px solid rgba(255,106,0,.35);
     color: var(--primary);
     font-size: .78rem;
     font-weight: 700;
@@ -179,11 +179,11 @@ $blog_posts = $stmt->fetchAll();
     text-transform: uppercase;
     border-radius: 50px;
     text-decoration: none;
-    box-shadow: 0 8px 28px rgba(245,166,35,.35);
+    box-shadow: 0 8px 28px rgba(255,106,0,.35);
     transition: all .3s ease;
     animation: pulse-ring 2.5s infinite;
 }
-.btn-gold:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(245,166,35,.5); }
+.btn-gold:hover { transform:translateY(-3px); box-shadow:0 14px 36px rgba(255,106,0,.5); }
 .btn-ghost-white {
     display: inline-flex;
     align-items: center;
@@ -201,6 +201,18 @@ $blog_posts = $stmt->fetchAll();
     transition: all .3s ease;
 }
 .btn-ghost-white:hover { border-color:rgba(255,255,255,.7); background:rgba(255,255,255,.15); transform:translateY(-2px); }
+.idx-hero__authority {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,.6);
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .5px;
+    margin-bottom: 32px;
+    animation: fadeUp .9s ease .25s both;
+}
+.idx-hero__authority i { color: var(--primary); }
 
 /* Hero right — image */
 .idx-hero__image-wrap {
@@ -252,7 +264,7 @@ $blog_posts = $stmt->fetchAll();
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px dashed rgba(245,166,35,.4);
+    border: 3px dashed rgba(255,106,0,.4);
     animation: float 4s ease-in-out infinite;
     pointer-events: none;
 }
@@ -263,56 +275,12 @@ $blog_posts = $stmt->fetchAll();
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(245,166,35,.2);
+    background: rgba(255,106,0,.2);
     animation: float 5s ease-in-out infinite reverse;
     pointer-events: none;
 }
 
-/* Stats bar */
-.idx-hero__stats {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 4;
-    display: flex;
-    justify-content: center;
-    padding: 0 24px 32px;
-    animation: fadeUp .9s ease .5s both;
-}
-.idx-hero__stats-inner {
-    display: flex;
-    gap: 12px;
-    background: rgba(255,255,255,.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,.18);
-    border-radius: 60px;
-    padding: 14px 28px;
-}
-.stat-pill {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 18px;
-    background: rgba(255,255,255,.95);
-    border-radius: 40px;
-    box-shadow: 0 4px 14px rgba(0,0,0,.15);
-}
-.stat-pill__num {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: var(--primary);
-    line-height: 1;
-}
-.stat-pill__label {
-    font-size: .72rem;
-    color: var(--secondary);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    line-height: 1.2;
-}
+
 
 /* ─── 2. MARQUEE ───────────────────────────────────────── */
 .idx-marquee {
@@ -386,7 +354,7 @@ $blog_posts = $stmt->fetchAll();
     align-items: center;
     justify-content: center;
     color: #fff;
-    box-shadow: 0 10px 30px rgba(245,166,35,.5);
+    box-shadow: 0 10px 30px rgba(255,106,0,.5);
     z-index: 2;
     text-align: center;
     animation: float 4s ease-in-out infinite;
@@ -469,9 +437,9 @@ $blog_posts = $stmt->fetchAll();
     border-radius: 50px;
     text-decoration: none;
     transition: all .3s ease;
-    box-shadow: 0 6px 20px rgba(26,47,90,.25);
+    box-shadow: 0 6px 20px rgba(11,30,63,.25);
 }
-.btn-navy:hover { background: #0d1b35; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,47,90,.35); }
+.btn-navy:hover { background: #0d1b35; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(11,30,63,.35); }
 .btn-outline-gold {
     display: inline-flex;
     align-items: center;
@@ -528,7 +496,7 @@ $blog_posts = $stmt->fetchAll();
     font-size: 1.6rem;
     color: #fff;
     margin-bottom: 22px;
-    box-shadow: 0 8px 20px rgba(245,166,35,.3);
+    box-shadow: 0 8px 20px rgba(255,106,0,.3);
     transition: transform .3s ease;
 }
 .svc-card:hover .svc-card__icon { transform: scale(1.08) rotate(-4deg); }
@@ -582,7 +550,7 @@ $blog_posts = $stmt->fetchAll();
     top: -80px; right: -80px;
     width: 350px; height: 350px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(245,166,35,.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,106,0,.1) 0%, transparent 70%);
     pointer-events: none;
 }
 .idx-why__grid {
@@ -597,17 +565,17 @@ $blog_posts = $stmt->fetchAll();
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid rgba(245,166,35,.35);
+    border: 2px solid rgba(255,106,0,.35);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 22px;
     font-size: 1.8rem;
     color: var(--primary);
-    background: rgba(245,166,35,.08);
+    background: rgba(255,106,0,.08);
     transition: all .3s ease;
 }
-.why-item:hover .why-item__icon-wrap { background: rgba(245,166,35,.18); border-color: var(--primary); transform: scale(1.08); }
+.why-item:hover .why-item__icon-wrap { background: rgba(255,106,0,.18); border-color: var(--primary); transform: scale(1.08); }
 .why-item__num {
     font-family: var(--font-heading);
     font-size: 2.4rem;
@@ -687,7 +655,7 @@ $blog_posts = $stmt->fetchAll();
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 0%, rgba(245,166,35,.08) 0%, transparent 60%);
+    background: radial-gradient(circle at 50% 0%, rgba(255,106,0,.08) 0%, transparent 60%);
     pointer-events: none;
 }
 .idx-videos__grid {
@@ -713,7 +681,7 @@ $blog_posts = $stmt->fetchAll();
     align-items: center;
     justify-content: center;
 }
-.vid-thumb__bg-1 { background: linear-gradient(135deg, #1a2f5a, #2d4a8a); }
+.vid-thumb__bg-1 { background: linear-gradient(135deg, #0B1E3F, #1a3a7a); }
 .vid-thumb__bg-2 { background: linear-gradient(135deg, #7c3aed, #4f26b5); }
 .vid-thumb__bg-3 { background: linear-gradient(135deg, #059669, #027a50); }
 .vid-thumb__overlay {
@@ -732,16 +700,16 @@ $blog_posts = $stmt->fetchAll();
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: rgba(245,166,35,.9);
+    background: rgba(255,106,0,.9);
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     font-size: 1.2rem;
-    box-shadow: 0 0 0 10px rgba(245,166,35,.2);
+    box-shadow: 0 0 0 10px rgba(255,106,0,.2);
     transition: all .3s ease;
 }
-.vid-thumb:hover .vid-play { transform: scale(1.12); box-shadow: 0 0 0 14px rgba(245,166,35,.2); }
+.vid-thumb:hover .vid-play { transform: scale(1.12); box-shadow: 0 0 0 14px rgba(255,106,0,.2); }
 .vid-thumb__label {
     color: rgba(255,255,255,.9);
     font-size: .82rem;
@@ -778,8 +746,8 @@ $blog_posts = $stmt->fetchAll();
     font-size: 3rem;
     color: rgba(255,255,255,.5);
 }
-.bp-img-1 { background: linear-gradient(135deg, #1a2f5a, #3b5998); }
-.bp-img-2 { background: linear-gradient(135deg, #F5A623, #E87722); }
+.bp-img-1 { background: linear-gradient(135deg, #0B1E3F, #1a4080); }
+.bp-img-2 { background: linear-gradient(135deg, #FF6A00, #CC5200); }
 .bp-img-3 { background: linear-gradient(135deg, #059669, #047857); }
 .bp-card__cat {
     position: absolute;
@@ -895,6 +863,321 @@ $blog_posts = $stmt->fetchAll();
 }
 .btn-ghost-dark:hover { border-color: #fff; background: rgba(255,255,255,.18); transform: translateY(-2px); }
 
+/* ─── WHAT IS DESCHOOL ─────────────────────────────────── */
+.idx-deschool {
+    background: linear-gradient(135deg, #0B1E3F 0%, #0d2650 60%, #0B1E3F 100%);
+    position: relative;
+    overflow: hidden;
+}
+.idx-deschool::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255,106,0,.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(255,106,0,.06) 0%, transparent 40%);
+    pointer-events: none;
+}
+.idx-deschool__inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+.idx-deschool__label {
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.idx-deschool__label::before { content:''; display:block; width:28px; height:2px; background:var(--primary); border-radius:2px; }
+.idx-deschool__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    letter-spacing: -.5px;
+}
+.idx-deschool__title em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--primary), #ffd166);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.idx-deschool__text {
+    color: rgba(255,255,255,.75);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+.idx-deschool__pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 36px;
+}
+.ds-pillar {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,106,0,.2);
+    border-radius: 14px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    transition: all .3s ease;
+}
+.ds-pillar:hover { background: rgba(255,106,0,.1); border-color: rgba(255,106,0,.4); transform: translateY(-2px); }
+.ds-pillar__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: rgba(255,106,0,.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF6A00;
+    font-size: .95rem;
+    flex-shrink: 0;
+}
+.ds-pillar__text { font-size: .82rem; color: rgba(255,255,255,.8); line-height: 1.5; font-weight: 600; }
+
+.idx-deschool__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.deschool-diagram {
+    position: relative;
+    width: 380px;
+    height: 380px;
+}
+.dd-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #FF6A00, #E85E00);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: .75rem;
+    box-shadow: 0 0 40px rgba(255,106,0,.35), 0 0 80px rgba(255,106,0,.12);
+    z-index: 2;
+}
+.dd-center strong { font-size: 1rem; display: block; margin-bottom: 2px; font-family: var(--font-heading); }
+.dd-orbit {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255,106,0,.25);
+    transform: translate(-50%, -50%);
+    animation: float 8s ease-in-out infinite;
+}
+.dd-node {
+    position: absolute;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    border: 1.5px solid rgba(255,255,255,.15);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 600;
+    gap: 4px;
+    backdrop-filter: blur(6px);
+    transition: all .3s ease;
+}
+.dd-node:hover { background: rgba(255,106,0,.15); border-color: rgba(255,106,0,.5); }
+.dd-node i { font-size: 1.1rem; color: var(--primary); }
+.dd-node--1 { top: -10px; left: 50%; transform: translateX(-50%); }
+.dd-node--2 { top: 50%; right: -10px; transform: translateY(-50%); }
+.dd-node--3 { bottom: -10px; left: 50%; transform: translateX(-50%); }
+.dd-node--4 { top: 50%; left: -10px; transform: translateY(-50%); }
+
+/* ─── STRUGGLES SECTION ─────────────────────────────────── */
+.idx-struggles { background: #fff; }
+.idx-struggles__intro {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+}
+.idx-struggles__question {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    color: var(--secondary);
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+.idx-struggles__question em {
+    font-style: normal;
+    color: #FF6A00;
+}
+.struggles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+.struggle-card {
+    border-radius: 18px;
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    border: 1.5px solid var(--border-color);
+    background: #fafbfd;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.struggle-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF6A00, #ffd166);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+.struggle-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.struggle-card:hover::before { transform: scaleX(1); }
+.struggle-card__icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: rgba(255,106,0,.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    color: #FF6A00;
+}
+.struggle-card__title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+.struggle-card__desc {
+    font-size: .85rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+}
+.struggles-bottom {
+    text-align: center;
+    padding: 36px;
+    background: linear-gradient(135deg, #0B1E3F, #1a3060);
+    border-radius: 20px;
+    color: #fff;
+}
+.struggles-bottom h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.struggles-bottom h3 em { font-style: normal; color: var(--primary); }
+.struggles-bottom p { color: rgba(255,255,255,.75); font-size: .95rem; margin-bottom: 24px; }
+
+/* ─── PROOF POINTS (About) ──────────────────────────────── */
+.proof-list {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.proof-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 12px;
+    border-left: 3px solid var(--primary);
+    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    font-size: .92rem;
+    color: var(--secondary);
+    font-weight: 600;
+    line-height: 1.4;
+    transition: all .3s ease;
+}
+.proof-list li:hover { transform: translateX(4px); box-shadow: 0 4px 16px rgba(255,106,0,.15); }
+.proof-list li i { color: var(--primary); font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
+
+/* ─── EMOTIONAL TESTIMONIAL ─────────────────────────────── */
+.idx-emo-testi {
+    background: linear-gradient(135deg, #0B1E3F 0%, #1a3060 100%);
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.idx-emo-testi::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 20rem;
+    color: rgba(255,106,0,.05);
+    font-family: Georgia, serif;
+    line-height: 1;
+    pointer-events: none;
+}
+.emo-testi__quote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.3;
+    max-width: 760px;
+    margin: 0 auto 28px;
+    position: relative;
+    z-index: 1;
+}
+.emo-testi__quote em { font-style: italic; color: var(--primary); }
+.emo-testi__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+}
+.emo-testi__avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: var(--font-heading);
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(255,106,0,.4);
+}
+.emo-testi__info { text-align: left; }
+.emo-testi__name { font-weight: 700; font-size: .95rem; color: #fff; }
+.emo-testi__role { font-size: .8rem; color: rgba(255,255,255,.6); }
+
 /* ─── Responsive ───────────────────────────────────────── */
 @media (max-width: 1024px) {
     .idx-hero__inner { grid-template-columns: 1fr; gap: 40px; padding-bottom: 160px; }
@@ -905,6 +1188,10 @@ $blog_posts = $stmt->fetchAll();
     .idx-testimonials__grid { grid-template-columns: 1fr 1fr; }
     .idx-videos__grid { grid-template-columns: 1fr 1fr; }
     .idx-blog__grid { grid-template-columns: 1fr 1fr; }
+    .idx-deschool__inner { grid-template-columns: 1fr; gap: 40px; }
+    .deschool-diagram { width: 300px; height: 300px; }
+    .dd-orbit { width: 260px; height: 260px; }
+    .struggles-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 768px) {
     .idx-hero__stats-inner { flex-wrap: wrap; gap: 8px; border-radius: 20px; }
@@ -916,12 +1203,15 @@ $blog_posts = $stmt->fetchAll();
     .idx-blog__grid { grid-template-columns: 1fr; }
     .idx-about__img-frame img { height: 340px; }
     .idx-about__years-badge { width: 90px; height: 90px; bottom:-14px; right:-14px; }
+    .struggles-grid { grid-template-columns: 1fr; }
+    .idx-deschool__pillars { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
     .idx-hero__actions { flex-direction: column; }
     .idx-hero__actions a { width: 100%; justify-content: center; }
     .idx-why__grid { grid-template-columns: 1fr; }
     .idx-cta__actions { flex-direction: column; align-items: center; }
+    .deschool-diagram { display: none; }
 }
 </style>
 
@@ -937,25 +1227,15 @@ $blog_posts = $stmt->fetchAll();
         <div class="idx-hero__copy">
             <div class="idx-hero__eyebrow">
                 <i class="fas fa-brain"></i>
-                <?= h(getSetting('hero_eyebrow')) ?>
+                The Deschool System
             </div>
-            <h1 class="idx-hero__title">
-                <?php if ($slide): ?>
-                    <?= nl2br(h($slide['title'])) ?>
-                <?php else: ?>
-                    <?= h(getSetting('hero_title_line1')) ?><br>
-                    <?= h(getSetting('hero_title_line2')) ?>
-                <?php endif; ?>
-            </h1>
-            <p class="idx-hero__sub">
-                <?= h($slide['subtitle'] ?? getSetting('hero_subtitle')) ?>
-            </p>
+            <h1 class="idx-hero__title">Rewire the Mind.<br><em>Rebuild the Life.</em></h1>
+            <p class="idx-hero__sub">From fear, distraction &amp; anxiety&hellip;<br>to clarity, confidence &amp; control.</p>
+            <p class="idx-hero__authority"><i class="fas fa-shield-alt"></i> The official platform of the Deschool System</p>
             <div class="idx-hero__actions">
-                <a href="<?= htmlspecialchars($slide['btn1_url'] ?? 'courses.php') ?>" class="btn-gold">
-                    <i class="fas fa-graduation-cap"></i> <?= h($slide['btn1_text'] ?? 'Explore Programs') ?>
-                </a>
+                <a href="contact.php" class="btn-gold"><i class="fas fa-fire"></i> Start Your Transformation</a>
                 <a href="<?= htmlspecialchars($slide['btn2_url'] ?? 'videos.php') ?>" class="btn-ghost-white">
-                    <i class="fas fa-play-circle"></i> <?= h($slide['btn2_text'] ?? 'Watch Videos') ?>
+                    <i class="fas fa-play-circle"></i> Watch Real Transformations
                 </a>
             </div>
         </div>
@@ -978,27 +1258,7 @@ $blog_posts = $stmt->fetchAll();
         </div>
     </div>
 
-    <!-- Stats Bar -->
-    <div class="idx-hero__stats">
-        <div class="idx-hero__stats-inner">
-            <div class="stat-pill">
-                <span class="stat-pill__num"><?= h(getSetting('stat_decades', '2+')) ?></span>
-                <span class="stat-pill__label">Decades of<br>Experience</span>
-            </div>
-            <div class="stat-pill">
-                <span class="stat-pill__num"><?= h(getSetting('stat_lives', '1M+')) ?></span>
-                <span class="stat-pill__label">Lives<br>Touched</span>
-            </div>
-            <div class="stat-pill">
-                <span class="stat-pill__num"><?= h(getSetting('stat_cities', '20+')) ?></span>
-                <span class="stat-pill__label">Cities<br>Reached</span>
-            </div>
-            <div class="stat-pill">
-                <span class="stat-pill__num"><?= h(getSetting('stat_programs', '50+')) ?></span>
-                <span class="stat-pill__label">Programs<br>Delivered</span>
-            </div>
-        </div>
-    </div>
+
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -1018,7 +1278,115 @@ $blog_posts = $stmt->fetchAll();
 </div>
 
 <!-- ═══════════════════════════════════════════════════════════
-     3. ABOUT DR. CHHABI
+     2B. WHAT IS DESCHOOL?
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-deschool" aria-labelledby="deschool-heading">
+    <div class="idx-container">
+        <div class="idx-deschool__inner">
+            <div class="reveal">
+                <p class="idx-deschool__label">The Deschool System</p>
+                <h2 class="idx-deschool__title" id="deschool-heading">
+                    What is <em>Deschool</em>?
+                </h2>
+                <p class="idx-deschool__text">
+                    Deschool is a revolutionary system that works <strong style="color:#fff">beyond traditional education and psychology</strong> — directly with the subconscious mind to eliminate fear, distraction, trauma, and limitations at the root.
+                </p>
+                <div class="idx-deschool__pillars">
+                    <div class="ds-pillar">
+                        <div class="ds-pillar__icon"><i class="fas fa-brain"></i></div>
+                        <span class="ds-pillar__text">Subconscious Reprogramming</span>
+                    </div>
+                    <div class="ds-pillar">
+                        <div class="ds-pillar__icon"><i class="fas fa-bolt"></i></div>
+                        <span class="ds-pillar__text">Root-Cause Transformation</span>
+                    </div>
+                    <div class="ds-pillar">
+                        <div class="ds-pillar__icon"><i class="fas fa-shield-alt"></i></div>
+                        <span class="ds-pillar__text">Fear &amp; Trauma Elimination</span>
+                    </div>
+                    <div class="ds-pillar">
+                        <div class="ds-pillar__icon"><i class="fas fa-infinity"></i></div>
+                        <span class="ds-pillar__text">Permanent Life Change</span>
+                    </div>
+                </div>
+                <a href="contact.php" class="btn-gold">
+                    <i class="fas fa-fire"></i> Book a Free Clarity Session
+                </a>
+            </div>
+            <div class="idx-deschool__visual reveal reveal-delay-1">
+                <div class="deschool-diagram">
+                    <div class="dd-orbit"></div>
+                    <div class="dd-center">
+                        <i class="fas fa-brain" style="font-size:2rem;margin-bottom:6px;"></i>
+                        <strong>Deschool</strong>
+                        System
+                    </div>
+                    <div class="dd-node dd-node--1"><i class="fas fa-bolt"></i>Clarity</div>
+                    <div class="dd-node dd-node--2"><i class="fas fa-fire"></i>Confidence</div>
+                    <div class="dd-node dd-node--3"><i class="fas fa-lock-open"></i>Freedom</div>
+                    <div class="dd-node dd-node--4"><i class="fas fa-heart"></i>Identity</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     2C. STRUGGLES (Pain Points)
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-section idx-struggles" aria-labelledby="struggles-heading">
+    <div class="idx-container">
+        <div class="idx-struggles__intro reveal">
+            <span class="gold-bar"></span>
+            <h2 class="idx-struggles__question" id="struggles-heading">
+                Do Any of These Sound Like <em>You?</em>
+            </h2>
+            <p style="color:var(--text-grey);font-size:1rem;line-height:1.6;">You're not lazy. You're not broken. Your mind was just never taught how to work for you.</p>
+        </div>
+
+        <div class="struggles-grid">
+            <div class="struggle-card reveal">
+                <div class="struggle-card__icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="struggle-card__title">Exam Fear &amp; Anxiety</div>
+                <p class="struggle-card__desc">Your mind goes blank under pressure. You know the answers — but fear blocks you.</p>
+            </div>
+            <div class="struggle-card reveal reveal-delay-1">
+                <div class="struggle-card__icon"><i class="fas fa-random"></i></div>
+                <div class="struggle-card__title">Distraction &amp; Lack of Focus</div>
+                <p class="struggle-card__desc">You start with motivation — but can't stay focused long enough to finish what matters.</p>
+            </div>
+            <div class="struggle-card reveal reveal-delay-2">
+                <div class="struggle-card__icon"><i class="fas fa-head-side-virus"></i></div>
+                <div class="struggle-card__title">Overthinking &amp; Worry</div>
+                <p class="struggle-card__desc">Your mind never stops. Constant what-ifs drain your energy before the day even begins.</p>
+            </div>
+            <div class="struggle-card reveal reveal-delay-1">
+                <div class="struggle-card__icon"><i class="fas fa-user-slash"></i></div>
+                <div class="struggle-card__title">Low Self-Image</div>
+                <p class="struggle-card__desc">You compare yourself constantly. Deep down, you don't feel worthy of success or love.</p>
+            </div>
+            <div class="struggle-card reveal reveal-delay-2">
+                <div class="struggle-card__icon"><i class="fas fa-couch"></i></div>
+                <div class="struggle-card__title">Laziness &amp; Procrastination</div>
+                <p class="struggle-card__desc">You know what to do — but something invisible keeps pulling you back to comfort zones.</p>
+            </div>
+            <div class="struggle-card reveal reveal-delay-3">
+                <div class="struggle-card__icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="struggle-card__title">Unresolved Trauma &amp; Stress</div>
+                <p class="struggle-card__desc">Old wounds still run the show — affecting your relationships, health, and decisions.</p>
+            </div>
+        </div>
+
+        <div class="struggles-bottom reveal">
+            <h3>This is not a <em>willpower</em> problem.<br>It's a <em>subconscious programming</em> problem.</h3>
+            <p>Deschool goes where therapy and motivation can't — directly to the root.</p>
+            <a href="contact.php" class="btn-gold"><i class="fas fa-fire"></i> Fix Your Mind Now</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     3. ABOUT CHHABI
 ═══════════════════════════════════════════════════════════ -->
 <section class="idx-section idx-about" aria-labelledby="about-heading">
     <div class="idx-container">
@@ -1039,30 +1407,32 @@ $blog_posts = $stmt->fetchAll();
 
             <!-- Content -->
             <div class="reveal reveal-delay-1">
-                <p class="idx-about__eyebrow"><?= h(getSetting('about_eyebrow', 'Meet the Founder')) ?></p>
+                <p class="idx-about__eyebrow">Meet the Founder</p>
                 <h2 class="idx-about__title" id="about-heading">
-                    <?= nl2br(h(getSetting('about_title', "Chhabi Adhikari —\nNepal's Foremost NLP Authority"))) ?>
+                    Chhabi Adhikari &mdash;<br>The Mind Behind Deschool
                 </h2>
-                <p class="idx-about__text">
-                    <?= nl2br(h(getSetting('about_text1'))) ?>
-                </p>
-                <p class="idx-about__text">
-                    <?= nl2br(h(getSetting('about_text2'))) ?>
-                </p>
+
+                <ul class="proof-list">
+                    <li><i class="fas fa-check-circle"></i> Helped a silent child speak confidently in 7 days</li>
+                    <li><i class="fas fa-check-circle"></i> Transformed deep trauma cases in days — not years</li>
+                    <li><i class="fas fa-check-circle"></i> Worked with students, teachers, professors &amp; engineers</li>
+                    <li><i class="fas fa-check-circle"></i> Healed phobias, fears &amp; exam anxiety at the root</li>
+                    <li><i class="fas fa-check-circle"></i> Delivered programs across <?= h(getSetting('stat_cities', '20+')) ?> cities</li>
+                    <li><i class="fas fa-check-circle"></i> <?= h(getSetting('stat_lives', '1M+')) ?> lives touched through workshops &amp; coaching</li>
+                </ul>
 
                 <div class="idx-about__credentials">
                     <span class="cred-badge"><i class="fas fa-certificate"></i> Certified NLP Trainer</span>
                     <span class="cred-badge"><i class="fas fa-globe-asia"></i> Nepal's #1 NLP Institute</span>
-                    <span class="cred-badge"><i class="fas fa-users"></i> <?= h(getSetting('stat_lives', '1M+')) ?> Lives Reached</span>
-                    <span class="cred-badge"><i class="fas fa-building"></i> Corporate & Personal</span>
+                    <span class="cred-badge"><i class="fas fa-building"></i> Corporate &amp; Personal</span>
                 </div>
 
                 <div class="idx-about__actions">
-                    <a href="about.php" class="btn-navy">
-                        <i class="fas fa-info-circle"></i> Learn More
+                    <a href="contact.php" class="btn-gold">
+                        <i class="fas fa-calendar-check"></i> Book a Free Clarity Session
                     </a>
-                    <a href="contact.php" class="btn-outline-gold">
-                        <i class="fas fa-envelope"></i> Get In Touch
+                    <a href="about.php" class="btn-outline-gold">
+                        <i class="fas fa-user"></i> Meet Chhabi
                     </a>
                 </div>
             </div>
@@ -1228,20 +1598,38 @@ $blog_posts = $stmt->fetchAll();
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
+     8B. EMOTIONAL TESTIMONIAL
+═══════════════════════════════════════════════════════════ -->
+<section class="idx-emo-testi" aria-label="Testimonial">
+    <div class="idx-container">
+        <p class="emo-testi__quote reveal">
+            &ldquo;I tried everything&hellip; but nothing changed&mdash;<em>until this.</em>&rdquo;
+        </p>
+        <div class="emo-testi__author reveal reveal-delay-1">
+            <div class="emo-testi__avatar">S</div>
+            <div class="emo-testi__info">
+                <div class="emo-testi__name">Sanjay K.</div>
+                <div class="emo-testi__role">Student &mdash; Kathmandu</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
      9. CTA BANNER
 ═══════════════════════════════════════════════════════════ -->
 <section class="idx-cta" aria-labelledby="cta-heading">
     <div class="idx-container">
         <div class="idx-cta__inner reveal">
-            <span class="idx-cta__tag"><i class="fas fa-fire"></i> &nbsp;Limited Seats Available</span>
-            <h2 class="idx-cta__heading" id="cta-heading"><?= h(getSetting('cta_heading', 'Ready to Transform Your Life?')) ?></h2>
-            <p class="idx-cta__sub"><?= h(getSetting('cta_subtext', 'Take the first step today. Join thousands of people who have already transformed their mindset, relationships, career, and health through D-School System.')) ?></p>
+            <span class="idx-cta__tag"><i class="fas fa-fire"></i> &nbsp;Your Transformation Starts Now</span>
+            <h2 class="idx-cta__heading" id="cta-heading">You Can Continue Struggling&hellip;<br>Or Take Control of Your Mind Today.</h2>
+            <p class="idx-cta__sub">Thousands have already rewired their minds with the Deschool System. The only question is: are you next?</p>
             <div class="idx-cta__actions">
-                <a href="calendar.php" class="btn-white">
-                    <i class="fas fa-calendar-check"></i> Join a Workshop
+                <a href="contact.php" class="btn-white">
+                    <i class="fas fa-calendar-check"></i> Book Free Session
                 </a>
                 <a href="contact.php" class="btn-ghost-dark">
-                    <i class="fas fa-envelope"></i> Contact Us
+                    <i class="fas fa-phone"></i> Contact Now
                 </a>
             </div>
         </div>
@@ -1265,3 +1653,11 @@ $blog_posts = $stmt->fetchAll();
 </script>
 
 <?php include 'includes/footer.php'; ?>
+
+
+
+
+
+
+
+

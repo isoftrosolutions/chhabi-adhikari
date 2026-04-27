@@ -18,6 +18,14 @@ if (function_exists('getSetting')) {
 // Allow individual pages to override
 $finalTitle = isset($pageTitle) ? $pageTitle . ' | D-school' : $defaultTitle;
 $finalMeta  = isset($pageMeta) ? $pageMeta : $defaultMeta;
+
+// Active nav detection
+$navCurrent = basename(parse_url($_SERVER['PHP_SELF'], PHP_URL_PATH), '.php');
+if (!$navCurrent || $navCurrent === '') $navCurrent = 'index';
+function navActive($page) {
+    global $navCurrent;
+    return $navCurrent === $page ? ' class="nav-active"' : '';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,12 +43,12 @@ $finalMeta  = isset($pageMeta) ? $pageMeta : $defaultMeta;
     <meta property="og:description" content="<?= htmlspecialchars($finalMeta) ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/css/style.css">
     <link rel="icon" type="image/png" href="<?= BASE_URL ?>/assets/Gemini_Generated_Image_ejsw4zejsw4zejsw.png">
     <link rel="manifest" href="<?= BASE_URL ?>/manifest.json">
-    <meta name="theme-color" content="#1a2f5a">
+    <meta name="theme-color" content="#0B1E3F">
     
     <!-- AEO: Organization Schema -->
     <script type="application/ld+json">
@@ -73,17 +81,23 @@ $finalMeta  = isset($pageMeta) ? $pageMeta : $defaultMeta;
         <div class="container">
             <nav role="navigation" aria-label="Main navigation">
                 <div class="logo">
-                    <a href="<?= BASE_URL ?>/index.php">D-SCHOOL<span>SYSTEM</span></a>
+                    <a href="<?= BASE_URL ?>/index.php">
+                        <span class="logo-icon"><i class="fas fa-brain" aria-hidden="true"></i></span>
+                        <span class="logo-text">D-SCHOOL<em>SYSTEM</em></span>
+                    </a>
                 </div>
                 <ul class="nav-links" role="menubar">
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/index" role="menuitem">Home</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/about" role="menuitem">About</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/blog" role="menuitem">News</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/videos" role="menuitem">Videos</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/gallery" role="menuitem">Gallery</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/courses" role="menuitem">Services</a></li>
-                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/contact" role="menuitem">Contact Us</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/index"<?= navActive('index') ?> role="menuitem">Home</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/about"<?= navActive('about') ?> role="menuitem">About</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/blog"<?= navActive('blog') ?> role="menuitem">News</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/videos"<?= navActive('videos') ?> role="menuitem">Videos</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/gallery"<?= navActive('gallery') ?> role="menuitem">Gallery</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/courses"<?= navActive('courses') ?> role="menuitem">Services</a></li>
+                    <li class="nav-item" role="none"><a href="<?= BASE_URL ?>/contact"<?= navActive('contact') ?> role="menuitem">Contact</a></li>
                 </ul>
+                <a href="<?= BASE_URL ?>/contact" class="nav-cta-btn" aria-label="Book a free session">
+                    <i class="fas fa-calendar-check" aria-hidden="true"></i> Book Free Session
+                </a>
                 <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                     <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
